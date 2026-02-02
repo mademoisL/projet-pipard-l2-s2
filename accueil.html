@@ -196,6 +196,71 @@
             color: #666;
         }
 
+                 /* --- SECTION AVIS CLIENTS --- */
+         .reviews-container {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: center;
+             gap: 30px;
+             width: 100%;
+             max-width: 1200px;
+         }
+
+         .review-card {
+             background: var(--glass-bg);
+             border: var(--glass-border);
+             border-radius: 15px;
+             padding: 30px;
+             flex: 1 1 300px; /* S'adapte à la largeur, min 300px */
+             max-width: 350px;
+             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+             transition: 0.3s;
+         }
+
+         .review-card:hover {
+             background: rgba(255, 255, 255, 0.08);
+             transform: translateY(-5px);
+         }
+
+         .user-header {
+             display: flex;
+             align-items: center;
+             margin-bottom: 15px;
+         }
+
+         .avatar {
+             width: 50px;
+             height: 50px;
+             border-radius: 50%;
+             background: linear-gradient(45deg, #333, #666); /* Faux avatar stylé */
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-weight: bold;
+             margin-right: 15px;
+             color: white;
+             border: 1px solid rgba(255,255,255,0.2);
+         }
+
+         .user-info h4 {
+             margin: 0;
+             font-size: 1rem;
+             color: white;
+         }
+
+         .stars {
+             color: #ffd700; /* Or chic */
+             font-size: 1.1rem;
+             margin-top: 5px;
+         }
+
+         .review-text {
+             font-size: 0.95rem;
+             line-height: 1.6;
+             color: #ccc;
+             font-style: italic;
+         }
+
     </style>
 </head>
 <body>
@@ -219,6 +284,53 @@
             "Incroyable fluidité, je ne cherche plus jamais de place." — Utilisateur Vérifié
         </div>
     </section>
+    <section id="avis">
+    <h2>Ce qu'ils en disent</h2>
+    <div class="reviews-container">
+        
+        <div class="review-card">
+            <div class="user-header">
+                <div class="avatar">TL</div>
+                <div class="user-info">
+                    <h4>Thomas L.</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text">
+                "Honnêtement, je ne pensais pas gagner autant de temps. La reconnaissance de plaque (LAPI) marche à la perfection, la barrière s'ouvre avant même que je sois à l'arrêt complet. C'est fluide, c'est propre. Bravo."
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="user-header">
+                <div class="avatar">SB</div>
+                <div class="user-info">
+                    <h4>Sarah B.</h4>
+                    <div class="stars">★★★★☆</div>
+                </div>
+            </div>
+            <p class="review-text">
+                "L'interface de l'application est super intuitive. J'adore pouvoir vérifier ma place réservée en temps réel. Petit bémol : j'aimerais encore plus de stats sur ma consommation, mais l'expérience globale est top."
+            </p>
+        </div>
+
+        <div class="review-card">
+            <div class="user-header">
+                <div class="avatar">JM</div>
+                <div class="user-info">
+                    <h4>Jean-Marc D.</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text">
+                "J'ai pris l'abonnement Premium pour le lavage mensuel inclus. Retrouver sa voiture impeccable en sortant de réunion, c'est un luxe dont je ne peux plus me passer. Le service client est très réactif."
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
 
     <section id="presentation">
         <h2>Notre Technologie</h2>
