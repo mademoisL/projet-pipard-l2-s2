@@ -1,13 +1,291 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Park - Stationnement Intelligent</title>
+    <style>
+        /* --- RESET & BASE --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00f2ff; /* Un bleu cyan néon chic */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    <h1>Menu d'accueil</h1>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif; /* Police propre et moderne */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
 
-     <header>
-        <a href=Connexion.html>Connexion</a>
-        <a href=Inscription.html>Inscription</a>
-     </header>
+        /* --- NAVIGATION (GLASSMORPHISM) --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px); /* L'effet de verre flouté */
+            z-index: 1000;
+            border-bottom: var(--glass-border);
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color); /* Lueur néon */
+        }
+
+        /* --- SECTIONS GÉNÉRALES --- */
+        section {
+            padding: 100px 50px;
+            min-height: 80vh; /* Chaque section prend presque tout l'écran */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: var(--glass-border);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* --- SECTION ACCUEIL --- */
+        #accueil {
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- SECTION CAPTEURS (GRID) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: var(--glass-border);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        /* --- SECTION ABONNEMENTS --- */
+        .pricing-wrapper {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: var(--glass-bg);
+            padding: 40px;
+            border: var(--glass-border);
+            text-align: center;
+            width: 300px;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin: 20px 0;
+        }
+
+        /* --- SECTION CONNEXION (FORMULAIRE) --- */
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 10px;
+            border: var(--glass-border);
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: transparent;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box; /* Important pour le padding */
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--text-color);
+            color: black;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .login-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .login-links a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px;
+            background: #050505;
+            display: flex;
+            justify-content: space-between;
+            border-top: var(--glass-border);
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+    </style>
 </head>
+<body>
+
+    <nav>
+        <div class="logo">Smart Park</div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#presentation">Présentation</a></li>
+            <li><a href="#abonnements">Abonnements</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#donnees">Mes données</a></li>
+            <li><a href="#connexion" style="color: white; border: 1px solid white; padding: 8px 15px; border-radius: 20px;">Connexion</a></li>
+        </ul>
+    </nav>
+
+    <section id="accueil">
+        <h1 class="hero-title">Le Futur du Stationnement.</h1>
+        <p>Garez-vous plus intelligemment avec Smart Park.</p>
+        <div style="margin-top: 50px; font-style: italic; color: #888;">
+            "Incroyable fluidité, je ne cherche plus jamais de place." — Utilisateur Vérifié
+        </div>
+    </section>
+
+    <section id="presentation">
+        <h2>Notre Technologie</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Capteur Ultrason</h3>
+                <p>Détection précise de présence véhicule à courte portée.</p>
+            </div>
+            <div class="card">
+                <h3>Caméra LAPI</h3>
+                <p>Lecture Automatique de Plaque d'Immatriculation pour l'accès.</p>
+            </div>
+            <div class="card">
+                <h3>Capteur IoT Sol</h3>
+                <p>Connectivité LoRaWAN pour une gestion temps réel.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="abonnements">
+        <h2>Nos Offres</h2>
+        <div class="pricing-wrapper">
+            <div class="price-card">
+                <h3>Standard</h3>
+                <div class="price">19€</div>
+                <p>/ mois</p>
+                <p>Accès 24/7</p>
+                <p>Support email</p>
+            </div>
+            <div class="price-card" style="border-color: var(--accent-color);">
+                <h3>Premium</h3>
+                <div class="price">39€</div>
+                <p>/ mois</p>
+                <p>Place réservée</p>
+                <p>Lavage mensuel inclus</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="connexion">
+        <h2>Espace Membre</h2>
+        <div class="login-box">
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit">Je me connecte</button>
+            </form>
+            <div class="login-links">
+                <a href="#">Mot de passe oublié ?</a>
+                <a href="#">Créer un compte</a>
+            </div>
+            <div style="margin-top: 20px; text-align: center; font-size: 0.8rem;">
+                <a href="#" style="color: #666;">Accéder à ma Page Profil</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h4>Contact</h4>
+            <p>contact@smartpark.com</p>
+        </div>
+        <div>
+            <h4>Questions / Réponses</h4>
+            <p>FAQ • Aide</p>
+        </div>
+    </footer>
+
+</body>
+</html>
