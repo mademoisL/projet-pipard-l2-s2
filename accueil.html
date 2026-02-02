@@ -261,6 +261,72 @@
              font-style: italic;
          }
 
+                  /* --- CARROUSEL INFINI (MARQUEE) --- */
+         .marquee-container {
+             width: 100%;
+             overflow: hidden; /* Cache ce qui dépasse */
+             padding: 50px 0;
+             position: relative;
+             background: linear-gradient(to right, var(--bg-color), transparent 10%, transparent 90%, var(--bg-color)); /* Fondu sur les bords */
+             z-index: 1;
+         }
+
+         .marquee-track {
+             display: flex;
+             gap: 30px;
+             width: max-content; /* S'adapte au contenu */
+             animation: scroll 60s linear infinite; /* Vitesse du défilement */
+         }
+
+         /* L'animation qui fait bouger le tout */
+         @keyframes scroll {
+             0% { transform: translateX(0); }
+             100% { transform: translateX(-50%); } /* On déplace de la moitié (car on a dupliqué le contenu) */
+         }
+
+         /* Pause quand la souris passe dessus pour lire */
+         .marquee-track:hover {
+             animation-play-state: paused;
+         }
+
+         /* Style des cartes du carrousel */
+         .review-card-carousel {
+             background: var(--glass-bg);
+             border: var(--glass-border);
+             border-radius: 15px;
+             padding: 25px;
+             width: 300px; /* Largeur fixe pour le carrousel */
+             flex-shrink: 0; /* Empêche l'écrasement */
+             backdrop-filter: blur(5px);
+             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+             user-select: none; /* Empêche de sélectionner le texte en scrollant */
+         }
+
+         .carousel-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 10px;
+         }
+
+         .carousel-stars {
+             color: #ffd700;
+             font-size: 0.9rem;
+         }
+
+         .carousel-user {
+             font-weight: bold;
+             color: white;
+             font-size: 0.9rem;
+         }
+
+         .carousel-text {
+             font-size: 0.85rem;
+             color: #ccc;
+             line-height: 1.5;
+             font-style: italic;
+         }
+
     </style>
 </head>
 <body>
@@ -284,52 +350,79 @@
             "Incroyable fluidité, je ne cherche plus jamais de place." — Utilisateur Vérifié
         </div>
     </section>
+    
+
     <section id="avis">
-    <h2>Ce qu'ils en disent</h2>
-    <div class="reviews-container">
-        
-        <div class="review-card">
-            <div class="user-header">
-                <div class="avatar">TL</div>
-                <div class="user-info">
-                    <h4>Thomas L.</h4>
-                    <div class="stars">★★★★★</div>
-                </div>
+    <h2 style="text-align: center;">L'Expérience Smart Park</h2>
+    
+    <div class="marquee-container">
+        <div class="marquee-track">
+            
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Lucas M.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"La lecture de plaque est instantanée. Je ne baisse même plus ma vitre. Bluffant."</p>
             </div>
-            <p class="review-text">
-                "Honnêtement, je ne pensais pas gagner autant de temps. La reconnaissance de plaque (LAPI) marche à la perfection, la barrière s'ouvre avant même que je sois à l'arrêt complet. C'est fluide, c'est propre. Bravo."
-            </p>
-        </div>
-
-        <div class="review-card">
-            <div class="user-header">
-                <div class="avatar">SB</div>
-                <div class="user-info">
-                    <h4>Sarah B.</h4>
-                    <div class="stars">★★★★☆</div>
-                </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Sophie T.</span><span class="carousel-stars">★★★★☆</span></div>
+                <p class="carousel-text">"Appli très propre. J'aimerais juste un mode sombre automatique sur l'app mobile."</p>
             </div>
-            <p class="review-text">
-                "L'interface de l'application est super intuitive. J'adore pouvoir vérifier ma place réservée en temps réel. Petit bémol : j'aimerais encore plus de stats sur ma consommation, mais l'expérience globale est top."
-            </p>
-        </div>
-
-        <div class="review-card">
-            <div class="user-header">
-                <div class="avatar">JM</div>
-                <div class="user-info">
-                    <h4>Jean-Marc D.</h4>
-                    <div class="stars">★★★★★</div>
-                </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Marc D.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"Le service Premium avec lavage est un gain de temps énorme pour mon entreprise."</p>
             </div>
-            <p class="review-text">
-                "J'ai pris l'abonnement Premium pour le lavage mensuel inclus. Retrouver sa voiture impeccable en sortant de réunion, c'est un luxe dont je ne peux plus me passer. Le service client est très réactif."
-            </p>
-        </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Elise R.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"Enfin des bornes de recharge qui fonctionnent et qui sont connectées !"</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Karim B.</span><span class="carousel-stars">★★★★☆</span></div>
+                <p class="carousel-text">"Sécurisé et bien éclairé la nuit. Je laisse ma voiture de sport sans crainte."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Julie A.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"Le guidage vers la place libre via les lumières au plafond est génial."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">David P.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"En tant qu'ingénieur, je suis impressionné par la réactivité des capteurs IoT."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Thomas L.</span><span class="carousel-stars">★★★★☆</span></div>
+                <p class="carousel-text">"Abonnement un peu cher mais la qualité de service est là. Rien à dire."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Chloé G.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"Service client réactif sur le chat. Problème de facturation réglé en 5 min."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Antoine V.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"Fini le ticket papier perdu. Tout est numérique, c'est tellement plus simple."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Sarah J.</span><span class="carousel-stars">★★★★☆</span></div>
+                <p class="carousel-text">"Très propre. La musique d'ambiance dans les ascenseurs est une touche sympa."</p>
+            </div>
+            <div class="review-card-carousel">
+                <div class="carousel-header"><span class="carousel-user">Nicolas F.</span><span class="carousel-stars">★★★★★</span></div>
+                <p class="carousel-text">"Smart Park a changé mon trajet matinal. Je arrive au bureau bien plus zen."</p>
+            </div>
 
+            <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Lucas M.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"La lecture de plaque est instantanée. Je ne baisse même plus ma vitre. Bluffant."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Sophie T.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Appli très propre. J'aimerais juste un mode sombre automatique sur l'app mobile."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Marc D.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Le service Premium avec lavage est un gain de temps énorme pour mon entreprise."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Elise R.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Enfin des bornes de recharge qui fonctionnent et qui sont connectées !"</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Karim B.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Sécurisé et bien éclairé la nuit. Je laisse ma voiture de sport sans crainte."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Julie A.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Le guidage vers la place libre via les lumières au plafond est génial."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">David P.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"En tant qu'ingénieur, je suis impressionné par la réactivité des capteurs IoT."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Thomas L.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Abonnement un peu cher mais la qualité de service est là. Rien à dire."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Chloé G.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Service client réactif sur le chat. Problème de facturation réglé en 5 min."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Antoine V.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Fini le ticket papier perdu. Tout est numérique, c'est tellement plus simple."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Sarah J.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Très propre. La musique d'ambiance dans les ascenseurs est une touche sympa."</p></div>
+             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Nicolas F.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Smart Park a changé mon trajet matinal. Je arrive au bureau bien plus zen."</p></div>
+
+        </div>
     </div>
 </section>
-
 
 
     <section id="presentation">
