@@ -1,13 +1,234 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-   <meta charset="UTF-8" />
-   <title>Contacts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Park – Contact</title>
 
-   <h1>Contacts</h1>
-     
-   <header>
-      <a href=Connexion.html>Connexion</a>
-      <a href=Inscription.html>Inscription</a>
-   </header>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00f2ff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: var(--glass-border);
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #888;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        section {
+            padding: 140px 50px 100px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            border: var(--glass-border);
+            border-radius: 15px;
+            padding: 40px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: transparent;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background: var(--glass-bg);
+            border: var(--glass-border);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .social:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0,242,255,0.3);
+        }
+
+        .social span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        footer {
+            padding: 40px;
+            background: #050505;
+            border-top: var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
+<body>
+
+<nav>
+    <div class="logo">Smart Park</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#">Présentation</a></li>
+        <li><a href="#">Abonnements</a></li>
+        <li><a href="#" style="color:white;">Contact</a></li>
+    </ul>
+</nav>
+
+<section>
+    <div class="contact-wrapper">
+
+        <!-- FORMULAIRE -->
+        <div class="contact-card">
+            <h2>Nous Contacter</h2>
+            <form>
+                <input type="text" placeholder="Nom & Prénom" required>
+                <input type="email" placeholder="Adresse email" required>
+                <textarea rows="5" placeholder="Votre message"></textarea>
+                <button type="submit">Envoyer le message</button>
+            </form>
+        </div>
+
+        <!-- INFOS + RÉSEAUX -->
+        <div class="contact-card">
+            <h2>Smart Park</h2>
+            <p style="color:#ccc; line-height:1.6;">
+                Une question, un partenariat ou un problème technique ?
+                Notre équipe Smart City vous répond rapidement.
+            </p>
+
+            <p style="margin-top:20px;">
+                📍 Paris, France<br>
+                ✉️ contact@smartpark.com<br>
+                ☎️ +33 1 84 00 00 00
+            </p>
+
+            <div class="socials">
+                <div class="social">
+                    🚀
+                    <span>LinkedIn</span>
+                </div>
+                <div class="social">
+                    📸
+                    <span>Instagram</span>
+                </div>
+                <div class="social">
+                    🐦
+                    <span>X / Twitter</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div>© 2026 Smart Park – Smart City Solutions</div>
+    <div>Mentions légales • Confidentialité</div>
+</footer>
+
+</body>
+</html>
