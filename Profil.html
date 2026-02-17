@@ -1,13 +1,285 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-   <meta charset="UTF-8" />
-   <title>Profil</title>
+<meta charset="UTF-8">
+<title>Smart Park – Profil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <h1>Profil</h1>
-     
-   <header>
-      <a href=Connexion.html>Connexion</a>
-      <a href=Inscription.html>Inscription</a>
-   </header>
+<style>
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-color: #00f2ff;
+    --glass-bg: rgba(255,255,255,0.05);
+    --glass-border: 1px solid rgba(255,255,255,0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--glass-border);
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #888;
+    text-decoration: none;
+}
+
+main {
+    padding: 140px 50px 80px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 30px;
+}
+
+/* --- CARDS --- */
+.card {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 15px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* --- CAPTEURS --- */
+.sensor {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+/* --- INPUTS ET BUTTONS --- */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--accent-color);
+    color: black;
+}
+
+/* --- ACTIVITÉ --- */
+.activity-item {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+</style>
 </head>
+
+<body>
+
+<nav>
+    <div class="logo">Smart Park</div>
+    <ul class="nav-links">
+        <li><a href="#" onclick="logout()">Déconnexion</a></li>
+    </ul>
+</nav>
+
+<main>
+<h1>Mon Profil</h1>
+
+<div class="grid">
+
+    <!-- --- INFOS PERSO --- -->
+    <div class="card">
+        <h3>Infos Personnelles</h3>
+        <label>Nom</label>
+        <input type="text" id="nom">
+        <label>Prénom</label>
+        <input type="text" id="prenom">
+        <label>Email</label>
+        <input type="email" id="emailUser">
+        <label>Mot de passe</label>
+        <input type="password" id="passwordUser">
+        <button onclick="saveInfos()">Enregistrer les modifications</button>
+        <p><a href="#">Mot de passe oublié ?</a></p>
+    </div>
+
+    <!-- --- VÉHICULES --- -->
+    <div class="card">
+        <h3>Mes Véhicules</h3>
+        <table id="vehiculeTable">
+            <thead>
+                <tr>
+                    <th>Immatriculation</th>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- véhicules ajoutés dynamiquement -->
+            </tbody>
+        </table>
+
+        <h4>Ajouter un véhicule</h4>
+        <input type="text" id="newMatricule" placeholder="Immatriculation">
+        <input type="text" id="newMarque" placeholder="Marque">
+        <input type="text" id="newModele" placeholder="Modèle">
+        <button onclick="addVehicule()">Ajouter</button>
+    </div>
+
+    <!-- --- CAPTEURS --- -->
+    <div class="card">
+        <h3>Accès aux capteurs</h3>
+        <ul id="capteursList">
+            <!-- Capteurs ajoutés dynamiquement -->
+        </ul>
+    </div>
+
+    <!-- --- ACTIVITÉ --- -->
+    <div class="card">
+        <h3>Dernière Activité</h3>
+        <div id="activiteList">
+            <!-- Activité ajoutée dynamiquement -->
+        </div>
+    </div>
+
+</div>
+</main>
+
+<script>
+// Vérification connexion
+if(localStorage.getItem("isLogged") !== "true") {
+    window.location.href = "accueil.html";
+}
+
+// Remplir infos perso
+document.getElementById("nom").value = localStorage.getItem("userName") || "";
+document.getElementById("prenom").value = localStorage.getItem("userFirstName") || "";
+document.getElementById("emailUser").value = localStorage.getItem("userEmail") || "";
+
+// Sauvegarder modifications
+function saveInfos(){
+    localStorage.setItem("userName", document.getElementById("nom").value);
+    localStorage.setItem("userFirstName", document.getElementById("prenom").value);
+    localStorage.setItem("userEmail", document.getElementById("emailUser").value);
+    alert("Modifications enregistrées !");
+}
+
+// Gestion véhicules
+let vehicules = [
+    {matricule:"AA-123-BB", marque:"Tesla", modele:"Model 3"}
+];
+
+function renderVehicules(){
+    const tbody = document.getElementById("vehiculeTable").querySelector("tbody");
+    tbody.innerHTML = "";
+    vehicules.forEach((v,i)=>{
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${v.matricule}</td><td>${v.marque}</td><td>${v.modele}</td>
+        <td><button onclick="deleteVehicule(${i})">Supprimer</button></td>`;
+        tbody.appendChild(tr);
+    });
+}
+function addVehicule(){
+    const mat = document.getElementById("newMatricule").value;
+    const marque = document.getElementById("newMarque").value;
+    const modele = document.getElementById("newModele").value;
+    if(mat && marque && modele){
+        vehicules.push({matricule:mat, marque:marque, modele:modele});
+        document.getElementById("newMatricule").value="";
+        document.getElementById("newMarque").value="";
+        document.getElementById("newModele").value="";
+        renderVehicules();
+        addActivity(`Ajout du véhicule ${mat}`);
+    }
+}
+function deleteVehicule(index){
+    addActivity(`Suppression du véhicule ${vehicules[index].matricule}`);
+    vehicules.splice(index,1);
+    renderVehicules();
+}
+renderVehicules();
+
+// Capteurs
+const capteurs = ["Capteur de présence au sol","Arceau motorisé","Borne de recharge","Signalétique LED","Caméra LAPI","Borne NFC / RFID","Bluetooth (localisation)","Scanner d’obstacles","Capteur de saturation","Capteur dépassement durée"];
+const capteursList = document.getElementById("capteursList");
+capteurs.forEach(c=>{
+    const li = document.createElement("li");
+    li.textContent = `🟢 ${c} : Abonné`;
+    capteursList.appendChild(li);
+});
+
+// Activité
+const activiteList = document.getElementById("activiteList");
+function addActivity(txt){
+    const div = document.createElement("div");
+    div.className = "activity-item";
+    div.textContent = txt;
+    activiteList.prepend(div);
+}
+addActivity("Connexion à l'application");
+
+// Déconnexion
+function logout(){
+    localStorage.removeItem("isLogged");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
+
