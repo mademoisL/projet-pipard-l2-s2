@@ -21,9 +21,9 @@
             font-family: 'Segoe UI', sans-serif;
             background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
             color: var(--text-color);
         }
 
@@ -36,6 +36,7 @@
             backdrop-filter: blur(10px);
             text-align: center;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            margin: auto;
         }
 
         h1 {
@@ -108,6 +109,31 @@
             box-shadow: 0 0 15px var(--accent-color);
         }
 
+        .links {
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: block;
+            margin-top: 8px;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+        }
+
         @media (max-width: 500px) {
             .conteneur {
                 width: 90%;
@@ -139,7 +165,17 @@
 
         <button class="btn" onclick="login()">Se connecter</button>
 
+        <div class="links">
+            <a href="#" onclick="forgotPassword()">Mot de passe oublié ?</a>
+            <a href="INSCRIPTION.html">Créer un compte</a>
+        </div>
+
     </div>
+
+    <footer>
+        © 2026 Smart Park — Solution intelligente de gestion de stationnement urbain  
+        | Mentions légales | Politique de confidentialité
+    </footer>
 
 <script>
     function login() {
@@ -163,6 +199,10 @@
         } else {
             alert('Email ou mot de passe incorrect.');
         }
+    }
+
+    function forgotPassword() {
+        alert("Fonctionnalité en cours de développement. Veuillez contacter l'assistance.");
     }
 </script>
 
