@@ -464,22 +464,40 @@
     </section>
 
     <section id="connexion">
-        <h2>Espace Membre</h2>
-        <div class="login-box">
-            <form>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Mot de passe" required>
-                <button type="submit">Je me connecte</button>
-            </form>
-            <div class="login-links">
-                <a href="#">Mot de passe oublié ?</a>
-                <a href="#">Créer un compte</a>
-            </div>
-            <div style="margin-top: 20px; text-align: center; font-size: 0.8rem;">
-                <a href="#" style="color: #666;">Accéder à ma Page Profil</a>
-            </div>
+    <h2>Espace Membre</h2>
+    <div class="login-box">
+
+        <form onsubmit="login(event)">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Mot de passe" required>
+            <button type="submit">Je me connecte</button>
+        </form>
+
+        <div class="login-links">
+            <a href="#">Mot de passe oublié ?</a>
+            <a href="#">Créer un compte</a>
         </div>
-    </section>
+
+    </div>
+</section>
+
+<script>
+    function login(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Compte temporaire 
+        if (email === "demo@smartpark.com" && password === "smartpark123") {
+            localStorage.setItem("isLogged", "true");
+            window.location.href = "profil.html";
+        } else {
+            alert("Email ou mot de passe incorrect");
+        }
+    }
+</script>
+
 
     <footer>
         <div>
