@@ -4,181 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Park - Stationnement Intelligent</title>
+    <title>SmartPark | Stationnement Intelligent</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <nav>
-        <div class="logo">Smart Park</div>
-        <ul class="nav-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#presentation">Présentation</a></li>
-            <li><a href="#abonnements">Abonnements</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#donnees">Mes données</a></li>
-            <li><a href="#connexion" style="color: white; border: 1px solid white; padding: 8px 15px; border-radius: 20px;">Connexion</a></li>
-        </ul>
-    </nav>
+<!-- ================= NAVIGATION ================= -->
 
-    <section id="accueil">
-        <h1 class="hero-title">Le Futur du Stationnement.</h1>
-        <p>Garez-vous plus intelligemment avec Smart Park.</p>
-        <div style="margin-top: 50px; font-style: italic; color: #888;">
-            "Incroyable fluidité, je ne cherche plus jamais de place." — Utilisateur Vérifié
+<nav>
+    <div class="logo">SmartPark</div>
+    <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#presentation">Technologie</a></li>
+        <li><a href="#abonnements">Abonnements</a></li>
+        <li><a href="#connexion" class="btn-nav">Connexion</a></li>
+    </ul>
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section id="accueil" class="hero">
+    <h1 class="hero-title">Le Futur du Stationnement</h1>
+    <p class="hero-subtitle">
+        Garez-vous plus intelligemment grâce à l'IoT et l'intelligence connectée.
+    </p>
+    <div class="hero-quote">
+        “Incroyable fluidité, je ne cherche plus jamais de place.” — Utilisateur Vérifié
+    </div>
+</section>
+
+<!-- ================= AVIS ================= -->
+
+<section id="avis">
+    <h2>L'Expérience SmartPark</h2>
+
+    <div class="reviews-grid">
+        <div class="review-card">
+            <h4>Lucas M. ★★★★★</h4>
+            <p>Lecture de plaque instantanée. Bluffant.</p>
         </div>
-    </section>
-    
 
-    <section id="avis">
-    <h2 style="text-align: center;">L'Expérience Smart Park</h2>
-    
-    <div class="marquee-container">
-        <div class="marquee-track">
-            
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Lucas M.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"La lecture de plaque est instantanée. Je ne baisse même plus ma vitre. Bluffant."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Sophie T.</span><span class="carousel-stars">★★★★☆</span></div>
-                <p class="carousel-text">"Appli très propre. J'aimerais juste un mode sombre automatique sur l'app mobile."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Marc D.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"Le service Premium avec lavage est un gain de temps énorme pour mon entreprise."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Elise R.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"Enfin des bornes de recharge qui fonctionnent et qui sont connectées !"</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Karim B.</span><span class="carousel-stars">★★★★☆</span></div>
-                <p class="carousel-text">"Sécurisé et bien éclairé la nuit. Je laisse ma voiture de sport sans crainte."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Julie A.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"Le guidage vers la place libre via les lumières au plafond est génial."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">David P.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"En tant qu'ingénieur, je suis impressionné par la réactivité des capteurs IoT."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Thomas L.</span><span class="carousel-stars">★★★★☆</span></div>
-                <p class="carousel-text">"Abonnement un peu cher mais la qualité de service est là. Rien à dire."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Chloé G.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"Service client réactif sur le chat. Problème de facturation réglé en 5 min."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Antoine V.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"Fini le ticket papier perdu. Tout est numérique, c'est tellement plus simple."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Sarah J.</span><span class="carousel-stars">★★★★☆</span></div>
-                <p class="carousel-text">"Très propre. La musique d'ambiance dans les ascenseurs est une touche sympa."</p>
-            </div>
-            <div class="review-card-carousel">
-                <div class="carousel-header"><span class="carousel-user">Nicolas F.</span><span class="carousel-stars">★★★★★</span></div>
-                <p class="carousel-text">"Smart Park a changé mon trajet matinal. Je arrive au bureau bien plus zen."</p>
-            </div>
+        <div class="review-card">
+            <h4>Sophie T. ★★★★☆</h4>
+            <p>Application moderne et intuitive.</p>
+        </div>
 
-            <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Lucas M.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"La lecture de plaque est instantanée. Je ne baisse même plus ma vitre. Bluffant."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Sophie T.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Appli très propre. J'aimerais juste un mode sombre automatique sur l'app mobile."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Marc D.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Le service Premium avec lavage est un gain de temps énorme pour mon entreprise."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Elise R.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Enfin des bornes de recharge qui fonctionnent et qui sont connectées !"</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Karim B.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Sécurisé et bien éclairé la nuit. Je laisse ma voiture de sport sans crainte."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Julie A.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Le guidage vers la place libre via les lumières au plafond est génial."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">David P.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"En tant qu'ingénieur, je suis impressionné par la réactivité des capteurs IoT."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Thomas L.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Abonnement un peu cher mais la qualité de service est là. Rien à dire."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Chloé G.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Service client réactif sur le chat. Problème de facturation réglé en 5 min."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Antoine V.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Fini le ticket papier perdu. Tout est numérique, c'est tellement plus simple."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Sarah J.</span><span class="carousel-stars">★★★★☆</span></div><p class="carousel-text">"Très propre. La musique d'ambiance dans les ascenseurs est une touche sympa."</p></div>
-             <div class="review-card-carousel"><div class="carousel-header"><span class="carousel-user">Nicolas F.</span><span class="carousel-stars">★★★★★</span></div><p class="carousel-text">"Smart Park a changé mon trajet matinal. Je arrive au bureau bien plus zen."</p></div>
+        <div class="review-card">
+            <h4>Marc D. ★★★★★</h4>
+            <p>Un gain de temps énorme pour mon entreprise.</p>
+        </div>
 
+        <div class="review-card">
+            <h4>Julie A. ★★★★★</h4>
+            <p>Le guidage lumineux est révolutionnaire.</p>
         </div>
     </div>
 </section>
 
+<!-- ================= TECHNOLOGIE ================= -->
 
-    <section id="presentation">
-        <h2>Notre Technologie</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>Capteur Ultrason</h3>
-                <p>Détection précise de présence véhicule à courte portée.</p>
-            </div>
-            <div class="card">
-                <h3>Caméra LAPI</h3>
-                <p>Lecture Automatique de Plaque d'Immatriculation pour l'accès.</p>
-            </div>
-            <div class="card">
-                <h3>Capteur IoT Sol</h3>
-                <p>Connectivité LoRaWAN pour une gestion temps réel.</p>
-            </div>
+<section id="presentation">
+    <h2>Notre Technologie IoT</h2>
+
+    <div class="grid-container">
+        <div class="card">
+            <h3>Capteur Ultrason</h3>
+            <p>Détection précise des véhicules en temps réel.</p>
         </div>
-    </section>
 
-    <section id="abonnements">
-        <h2>Nos Offres</h2>
-        <div class="pricing-wrapper">
-            <div class="price-card">
-                <h3>Standard</h3>
-                <div class="price">19€</div>
-                <p>/ mois</p>
-                <p>Accès 24/7</p>
-                <p>Support email</p>
-            </div>
-            <div class="price-card" style="border-color: var(--accent-color);">
-                <h3>Premium</h3>
-                <div class="price">39€</div>
-                <p>/ mois</p>
-                <p>Place réservée</p>
-                <p>Lavage mensuel inclus</p>
-            </div>
+        <div class="card">
+            <h3>Caméra LAPI</h3>
+            <p>Lecture automatique des plaques pour un accès sécurisé.</p>
         </div>
-    </section>
 
-    <section id="connexion">
+        <div class="card">
+            <h3>Capteur IoT Sol</h3>
+            <p>Transmission des données via réseau LoRaWAN.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= ABONNEMENTS ================= -->
+
+<section id="abonnements">
+    <h2>Nos Offres</h2>
+
+    <div class="pricing-wrapper">
+
+        <div class="price-card">
+            <h3>Standard</h3>
+            <div class="price">19€</div>
+            <p>/ mois</p>
+            <ul>
+                <li>Accès 24/7</li>
+                <li>Support email</li>
+                <li>Notifications temps réel</li>
+            </ul>
+        </div>
+
+        <div class="price-card highlight">
+            <h3>Premium</h3>
+            <div class="price">39€</div>
+            <p>/ mois</p>
+            <ul>
+                <li>Place réservée</li>
+                <li>Lavage mensuel</li>
+                <li>Support prioritaire</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CONNEXION ================= -->
+
+<section id="connexion">
     <h2>Espace Membre</h2>
-    <div class="login-box">
 
+    <div class="login-box">
         <form onsubmit="login(event)">
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Mot de passe" required>
-            <button type="submit">Je me connecte</button>
+            <button type="submit">Se connecter</button>
         </form>
 
         <div class="login-links">
-            <a href="#">Mot de passe oublié ?</a>
-            <a href="#">Créer un compte</a>
+            <a href="Mdp_oubli.html">Mot de passe oublié ?</a>
+            <a href="Inscription.html">Créer un compte</a>
         </div>
-
     </div>
 </section>
 
-<script>
-    function login(event) {
-        event.preventDefault();
+<!-- ================= FOOTER ================= -->
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        // Compte temporaire 
-        if (email === "demo@smartpark.com" && password === "smartpark123") {
-            localStorage.setItem("isLogged", "true");
-            window.location.href = "profil.html";
-        } else {
-            alert("Email ou mot de passe incorrect");
-        }
-    }
-</script>
-
-
-<footer class="footer">
+<footer>
     <div class="footer-container">
 
         <div class="footer-section">
@@ -195,10 +155,27 @@
     </div>
 
     <div class="footer-bottom">
-        © 2026 Smart Park — Gestion intelligente du stationnement urbain
+        © 2026 SmartPark — Gestion intelligente du stationnement urbain
     </div>
-
 </footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+function login(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "demo@smartpark.com" && password === "smartpark123") {
+        localStorage.setItem("isLogged", "true");
+        window.location.href = "profil.html";
+    } else {
+        alert("Email ou mot de passe incorrect");
+    }
+}
+</script>
 
 </body>
 </html>
