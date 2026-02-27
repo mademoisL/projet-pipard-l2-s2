@@ -1,0 +1,311 @@
+/* ============================= */
+/* ========= VARIABLES ========= */
+/* ============================= */
+
+/* Couleurs principales du site */
+:root {
+    --bg-color: #0a0a0a; /* Couleur de fond principale */
+    --bg-gradient: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
+    --text-color: #ffffff; /* Couleur du texte */
+    --accent-color: #00f2ff; /* Couleur d'accent (effets, hover, focus) */
+    --glass-bg: rgba(255, 255, 255, 0.05); /* Effet verre */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================= */
+/* ========== BASE ============= */
+/* ============================= */
+
+/* Style global de la page */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    scroll-behavior: smooth; /* Scroll fluide */
+    min-height: 100vh;
+}
+
+/* Titres */
+h1, h2 {
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* ============================= */
+/* ========= NAVBAR ============ */
+/* ============================= */
+
+/* Barre de navigation fixée en haut */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px); /* Effet flou */
+    border-bottom: var(--glass-border);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Logo du site */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Liens de navigation */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+/* Effet au survol */
+.nav-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* ============================= */
+/* ========= LAYOUT ============ */
+/* ============================= */
+
+/* Structure principale des sections */
+main, section {
+    padding: 140px 50px 100px; /* Espace sous la navbar */
+}
+
+section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: var(--glass-border);
+}
+
+/* ============================= */
+/* ========= CARTES ============ */
+/* ============================= */
+
+/* Style commun aux cartes */
+.card,
+.contact-card,
+.price-card,
+.review-card,
+.review-card-carousel {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 15px;
+}
+
+/* Animation légère au survol */
+.card,
+.contact-card,
+.review-card {
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.card:hover,
+.social:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+/* ============================= */
+/* ========= GRILLE ============ */
+/* ============================= */
+
+/* Grilles responsives */
+.grid,
+.grid-container {
+    display: grid;
+    gap: 30px;
+}
+
+.grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* ============================= */
+/* ========= FORMULAIRES ======= */
+/* ============================= */
+
+/* Champs input / textarea */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* Effet focus */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Boutons */
+button,
+.btn {
+    width: 100%;
+    padding: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+/* Bouton principal */
+button {
+    background: white;
+    color: black;
+}
+
+/* Effet hover bouton */
+button:hover,
+.btn:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* ============================= */
+/* ========= LOGIN BOX ========= */
+/* ============================= */
+
+/* Bloc connexion */
+.conteneur,
+.login-box {
+    max-width: 420px;
+    width: 100%;
+    padding: 40px;
+    margin: auto;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Ligne avec séparateurs */
+.ligne-texte {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.hr-container {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+/* Liens secondaires */
+.links a,
+.back-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.links a:hover,
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================= */
+/* ========= CONTACT =========== */
+/* ============================= */
+
+.contact-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* Réseaux sociaux */
+.socials {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* ============================= */
+/* ========= FOOTER ============ */
+/* ============================= */
+
+footer {
+    padding: 40px;
+    background: #050505;
+    border-top: var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ============================= */
+/* ========= RESPONSIVE ======== */
+/* ============================= */
+
+/* Tablettes */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .conteneur {
+        width: 90%;
+        padding: 30px;
+    }
+}

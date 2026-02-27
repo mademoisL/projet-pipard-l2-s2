@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Park | Connexion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="conteneur">
+
+        <h1>Smart Park</h1>
+
+        <div class="ligne-texte">
+            <div class="hr-container"></div>
+            <h3>Connexion</h3>
+            <div class="hr-container"></div>
+        </div>
+
+        <label for="email">Adresse email</label>
+        <input type="text" id="email" placeholder="Entrer votre email">
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" placeholder="Entrer votre mot de passe">
+
+        <button class="btn" onclick="login()">Se connecter</button>
+
+        <div class="links">
+            <a href="Mdp_oubli.html" onclick="forgotPassword()">Mot de passe oublié ?</a>
+            <a href="INSCRIPTION.html">Créer un compte</a>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Smart Park — Solution intelligente de gestion de stationnement urbain  
+        | Mentions légales | Politique de confidentialité
+    </footer>
+
+<script>
+    function login() {
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        if (!email || !password) {
+            alert('Veuillez remplir tous les champs.');
+            return;
+        }
+
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        let validUser = users.find(user => user.email === email && user.password === password);
+
+        if (validUser) {
+            localStorage.setItem('prenom', validUser.prenom);
+            localStorage.setItem('nom', validUser.nom);
+
+            alert('Connexion réussie !');
+            window.location.href = 'ACCUEIL.html';
+        } else {
+            alert('Email ou mot de passe incorrect.');
+        }
+    }
+
+    function forgotPassword() {
+        alert("Vous allez être redirigé sur une page afin de recevoir un lien de réinitialisation de votre mot de passe.");
+    }
+</script>
+
+</body>
+
+</html>

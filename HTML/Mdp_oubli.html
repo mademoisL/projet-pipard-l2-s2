@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Park | Réinitialisation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="conteneur">
+
+        <h1>Réinitialiser le mot de passe</h1>
+
+        <p>
+            Entrez votre adresse email.  
+            Si un compte existe, un lien de réinitialisation vous sera envoyé.
+        </p>
+
+        <input type="text" id="email" placeholder="Entrer votre email">
+
+        <button class="btn" onclick="resetPassword()">Envoyer le lien</button>
+
+        <a href="CONNEXION.html" class="back-link">Retour à la connexion</a>
+
+    </div>
+
+    <footer>
+        © 2026 Smart Park — Solution intelligente de gestion du stationnement urbain
+    </footer>
+
+<script>
+    function resetPassword() {
+
+        let email = document.getElementById('email').value;
+
+        if (!email) {
+            alert("Veuillez entrer votre adresse email.");
+            return;
+        }
+
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        let userExists = users.find(user => user.email === email);
+
+        if (userExists) {
+            alert("Un lien de réinitialisation a été envoyé à votre adresse email (simulation).");
+        } else {
+            alert("Aucun compte associé à cette adresse.");
+        }
+    }
+</script>
+
+</body>
+
+</html>
