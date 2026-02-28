@@ -1,6 +1,4 @@
-/* ============================= */
-/* ========= VARIABLES ========= */
-/* ============================= */
+/* ================= VARIABLES ================= */
 
 /* Couleurs principales du site */
 :root {
@@ -13,9 +11,7 @@
     --border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ============================= */
-/* ========== BASE ============= */
-/* ============================= */
+/* ================= BASE ================= */
 
 /* Style global de la page */
 body {
@@ -37,9 +33,7 @@ h2 {
     margin-bottom: 40px;
 }
 
-/* ============================= */
-/* ========= NAVBAR ============ */
-/* ============================= */
+/* ================= NAVBAR ================= */
 
 /* Barre de navigation fixée en haut */
 nav {
@@ -85,9 +79,7 @@ nav {
     text-shadow: 0 0 10px var(--accent-color);
 }
 
-/* ============================= */
-/* ========= LAYOUT ============ */
-/* ============================= */
+/* ================= LAYOUT ================= */
 
 /* Structure principale des sections */
 main, section {
@@ -103,9 +95,50 @@ section {
     border-bottom: var(--glass-border);
 }
 
-/* ============================= */
-/* ========= CARTES ============ */
-/* ============================= */
+
+/* ================= CARROUSEL AVIS ================= */
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    padding: 40px 0;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll 40s linear infinite; /* vitesse lente */
+}
+
+.carousel-track:hover {
+    animation-play-state: paused; /* pause au hover */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.review-card {
+    min-width: 300px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(0,242,255,0.3);
+}
+
+/* ================= CARTES ================= */
 
 /* Style commun aux cartes */
 .card,
@@ -132,9 +165,7 @@ section {
     border-color: var(--accent-color);
 }
 
-/* ============================= */
-/* ========= GRILLE ============ */
-/* ============================= */
+/* ================= GRILLES ================= */
 
 /* Grilles responsives */
 .grid,
@@ -153,9 +184,64 @@ section {
     width: 100%;
 }
 
-/* ============================= */
-/* ========= FORMULAIRES ======= */
-/* ============================= */
+/* ================= ABONNEMENTS ================= */
+
+.pricing-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.price-card {
+    width: 320px;
+    padding: 50px 40px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: 0.4s;
+}
+
+.price-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(0,242,255,0.3);
+}
+
+.price-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 20px 0;
+}
+
+.price-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+.price-card ul li {
+    margin: 10px 0;
+    color: #ccc;
+}
+
+/* Carte premium mise en avant */
+.highlight {
+    transform: scale(1.05);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 40px rgba(0,242,255,0.4);
+}
+
+/* ================= FORMULAIRES ================= */
 
 /* Champs input / textarea */
 input,
@@ -205,51 +291,133 @@ button:hover,
     box-shadow: 0 0 15px var(--accent-color);
 }
 
-/* ============================= */
-/* ========= LOGIN BOX ========= */
-/* ============================= */
+/* ================= LOGIN BOX ================= */
 
-/* Bloc connexion */
-.conteneur,
-.login-box {
-    max-width: 420px;
-    width: 100%;
-    padding: 40px;
-    margin: auto;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-}
 
-/* Ligne avec séparateurs */
-.ligne-texte {
+/* On force le centrage vertical parfait pour la page de login */
+.page-centree {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    min-height: 100vh;
 }
 
-.hr-container {
-    flex: 1;
-    height: 1px;
-    background-color: var(--border-color);
+.page-centree main {
+    padding: 0; /* On annule le padding de 140px du main global pour cette page */
 }
 
-/* Liens secondaires */
-.links a,
-.back-link {
+/* On stylise les groupes d'input pour qu'ils ne soient pas collés */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
     color: var(--accent-color);
+}
+
+/* Amélioration de la login-box pour qu'elle ressemble à tes cartes d'appareils */
+.login-box {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    color: white;
+}
+
+/* ===== SECTION APPAREILS ===== */
+
+.appareils-container {
+    padding: 140px 8% 100px;
+}
+
+/* On change le fond blanc en "Glassmorphism" pour coller au reste du site */
+.card-appareil {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    padding: 25px;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.card-appareil:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+.card-appareil h3 {
+    margin: 0;
+    color: var(--text-color);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Cache la description par défaut */
+.description-content {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+    text-align: center;
+}
+
+.description-content p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* Style du bouton "Voir en détail" */
+.btn-detail {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: var(--accent-color);
+    color: #000;
     text-decoration: none;
-    font-size: 0.85rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: 0.3s;
 }
 
-.links a:hover,
-.back-link:hover {
-    text-decoration: underline;
+.btn-detail:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
 }
 
-/* ============================= */
-/* ========= CONTACT =========== */
-/* ============================= */
+/* Classe activée par JavaScript */
+.card-appareil.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+}
+
+.card-appareil.active .description-content {
+    max-height: 300px; /* Hauteur suffisante pour le texte */
+    opacity: 1;
+    padding-top: 10px;
+}
+
+.card-appareil.active h3 {
+    color: var(--accent-color);
+}
+
+/* ================= CONTACTS ================= */
 
 .contact-wrapper {
     max-width: 1100px;
@@ -277,9 +445,7 @@ button:hover,
     cursor: pointer;
 }
 
-/* ============================= */
-/* ========= FOOTER ============ */
-/* ============================= */
+/* ================= FOOTER ================= */
 
 footer {
     padding: 40px;
@@ -291,9 +457,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ============================= */
-/* ========= RESPONSIVE ======== */
-/* ============================= */
+/* ================= RESPONSIVES ================= */
 
 /* Tablettes */
 @media (max-width: 900px) {

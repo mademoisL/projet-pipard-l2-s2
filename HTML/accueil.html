@@ -15,10 +15,13 @@
 <nav>
     <div class="logo">SmartPark</div>
     <ul class="nav-links">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#presentation">Technologie</a></li>
-        <li><a href="#abonnements">Abonnements</a></li>
-        <li><a href="#connexion" class="btn-nav">Connexion</a></li>
+
+        <li><a href="Abonnements.html">Nos abonnements</a></li>
+        <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
+        <li><a href="Nous.html">A propos de nous</a></li>
+        <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Connexion.html">Connexion</a></li>
+        <li><a href="Profil.html">Profil</a></li>
     </ul>
 </nav>
 
@@ -39,25 +42,40 @@
 <section id="avis">
     <h2>L'Expérience SmartPark</h2>
 
-    <div class="reviews-grid">
-        <div class="review-card">
-            <h4>Lucas M. ★★★★★</h4>
-            <p>Lecture de plaque instantanée. Bluffant.</p>
-        </div>
+    <div class="carousel">
+        <div class="carousel-track">
 
-        <div class="review-card">
-            <h4>Sophie T. ★★★★☆</h4>
-            <p>Application moderne et intuitive.</p>
-        </div>
+            <div class="review-card">
+                <h4>Lucas M. ★★★★★</h4>
+                <p>Lecture de plaque instantanée. Bluffant.</p>
+            </div>
 
-        <div class="review-card">
-            <h4>Marc D. ★★★★★</h4>
-            <p>Un gain de temps énorme pour mon entreprise.</p>
-        </div>
+            <div class="review-card">
+                <h4>Sophie T. ★★★★☆</h4>
+                <p>Application moderne et intuitive.</p>
+            </div>
 
-        <div class="review-card">
-            <h4>Julie A. ★★★★★</h4>
-            <p>Le guidage lumineux est révolutionnaire.</p>
+            <div class="review-card">
+                <h4>Marc D. ★★★★★</h4>
+                <p>Un gain de temps énorme pour mon entreprise.</p>
+            </div>
+
+            <div class="review-card">
+                <h4>Julie A. ★★★★★</h4>
+                <p>Le guidage lumineux est révolutionnaire.</p>
+            </div>
+
+            <!-- duplication pour effet infini -->
+            <div class="review-card">
+                <h4>Lucas M. ★★★★★</h4>
+                <p>Lecture de plaque instantanée. Bluffant.</p>
+            </div>
+
+            <div class="review-card">
+                <h4>Sophie T. ★★★★☆</h4>
+                <p>Application moderne et intuitive.</p>
+            </div>
+
         </div>
     </div>
 </section>
@@ -85,57 +103,6 @@
     </div>
 </section>
 
-<!-- ================= ABONNEMENTS ================= -->
-
-<section id="abonnements">
-    <h2>Nos Offres</h2>
-
-    <div class="pricing-wrapper">
-
-        <div class="price-card">
-            <h3>Standard</h3>
-            <div class="price">19€</div>
-            <p>/ mois</p>
-            <ul>
-                <li>Accès 24/7</li>
-                <li>Support email</li>
-                <li>Notifications temps réel</li>
-            </ul>
-        </div>
-
-        <div class="price-card highlight">
-            <h3>Premium</h3>
-            <div class="price">39€</div>
-            <p>/ mois</p>
-            <ul>
-                <li>Place réservée</li>
-                <li>Lavage mensuel</li>
-                <li>Support prioritaire</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-<!-- ================= CONNEXION ================= -->
-
-<section id="connexion">
-    <h2>Espace Membre</h2>
-
-    <div class="login-box">
-        <form onsubmit="login(event)">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Mot de passe" required>
-            <button type="submit">Se connecter</button>
-        </form>
-
-        <div class="login-links">
-            <a href="Mdp_oubli.html">Mot de passe oublié ?</a>
-            <a href="Inscription.html">Créer un compte</a>
-        </div>
-    </div>
-</section>
-
 <!-- ================= FOOTER ================= -->
 
 <footer>
@@ -158,24 +125,6 @@
         © 2026 SmartPark — Gestion intelligente du stationnement urbain
     </div>
 </footer>
-
-<!-- ================= SCRIPT ================= -->
-
-<script>
-function login(event) {
-    event.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if (email === "demo@smartpark.com" && password === "smartpark123") {
-        localStorage.setItem("isLogged", "true");
-        window.location.href = "profil.html";
-    } else {
-        alert("Email ou mot de passe incorrect");
-    }
-}
-</script>
 
 </body>
 </html>

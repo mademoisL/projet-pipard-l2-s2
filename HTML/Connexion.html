@@ -10,35 +10,36 @@
 
 <body>
 
-    <div class="conteneur">
+<main>
+    <body class="page-centree"> <main> <div class="conteneur login-box">
+            <h1>SmartPark</h1>
 
-        <h1>Smart Park</h1>
+            <div class="ligne-texte">
+                <div class="hr-container"></div>
+                <h3>Connexion</h3>
+                <div class="hr-container"></div>
+            </div>
 
-        <div class="ligne-texte">
-            <div class="hr-container"></div>
-            <h3>Connexion</h3>
-            <div class="hr-container"></div>
+            <div class="input-group">
+                <label for="email">Adresse email</label>
+                <input type="text" id="email" placeholder="Entrer votre email">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" placeholder="Entrer votre mot de passe">
+            </div>
+
+            <button class="btn" onclick="login()">Se connecter</button>
+
+            <div class="links">
+                <a href="Mdp_oubli.html">Mot de passe oublié ?</a>
+                <a href="INSCRIPTION.html">Créer un compte</a>
+            </div>
         </div>
+    </main>
 
-        <label for="email">Adresse email</label>
-        <input type="text" id="email" placeholder="Entrer votre email">
-
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" placeholder="Entrer votre mot de passe">
-
-        <button class="btn" onclick="login()">Se connecter</button>
-
-        <div class="links">
-            <a href="Mdp_oubli.html" onclick="forgotPassword()">Mot de passe oublié ?</a>
-            <a href="INSCRIPTION.html">Créer un compte</a>
-        </div>
-
-    </div>
-
-    <footer>
-        © 2026 Smart Park — Solution intelligente de gestion de stationnement urbain  
-        | Mentions légales | Politique de confidentialité
-    </footer>
+</body>
 
 <script>
     function login() {
@@ -68,6 +69,30 @@
         alert("Vous allez être redirigé sur une page afin de recevoir un lien de réinitialisation de votre mot de passe.");
     }
 </script>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>contact@smartpark.com</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Questions / Réponses</h4>
+            <a href="FAQ.html">FAQ</a>
+            <a href="AIDE.html">Centre d’aide</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 SmartPark — Gestion intelligente du stationnement urbain
+    </div>
+</footer>
 
 </body>
 
