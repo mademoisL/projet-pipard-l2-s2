@@ -1,13 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8" />
-    <title>Inscription</title>
-    <h1>Inscription</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPark | Inscription</title>
     <link rel="stylesheet" href="../CSS/Style.css">
 </head>
+<body class="page-centree">
 
-<form action=Connexion.html method="get">
-   <button type="submit">Je m'inscris !</button>
-</form>
+    <a href="ACCUEIL.html" class="back-to-home">← Retour à l'accueil</a>
+
+    <main>
+        <div class="conteneur login-box">
+            <h1>SmartPark</h1>
+            
+            <div class="ligne-texte">
+                <div class="hr-container"></div>
+                <h3>Créer un compte</h3>
+                <div class="hr-container"></div>
+            </div>
+
+            <form id="inscriptionForm" onsubmit="register(event)">
+                <div class="input-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" placeholder="Votre prénom" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" placeholder="Votre nom" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" placeholder="nom@exemple.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="Minimum 6 caractères" required>
+                </div>
+
+                <button type="submit" class="btn btn-login">Je m'inscris !</button>
+            </form>
+
+            <div class="links">
+                <span>Déjà un compte ?</span>
+                <a href="Connexion.html">Se connecter</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function register(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            let prenom = document.getElementById('prenom').value;
+            let nom = document.getElementById('nom').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            // Récupérer les utilisateurs existants ou créer un tableau vide
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Vérifier si l'email existe déjà
+            if (users.find(user => user.email === email)) {
+                alert("Cet email est déjà utilisé.");
+                return;
+            }
+
+            // Ajouter le nouvel utilisateur
+            users.push({ prenom, nom, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert("Inscription réussie ! Vous allez être redirigé vers la page de connexion.");
+            window.location.href = 'Connexion.html';
+        }
+    </script>
+
+</body>
+</html>
