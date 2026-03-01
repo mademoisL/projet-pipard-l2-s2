@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="../CSS/Style.css">
 </head>
 
-<body>
+<body class="page-centree" style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
 
-<main>
-    <body class="page-centree"> <main> <div class="conteneur login-box">
-            <h1>SmartPark</h1>
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 20px;">
+        
+        <div class="conteneur login-box" style="max-width: 550px; width: 100%; padding: 50px; box-sizing: border-box;">
+            
+            <div class="nav-left" style="justify-content: center; margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+                <img src="../Images/Logo sans nom.png" alt="Logo" class="header-logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 5px white);">
+                <div class="logo-text" style="margin: 0;">SMARTPARK</div>
+            </div>
 
             <div class="ligne-texte">
                 <div class="hr-container"></div>
@@ -22,7 +27,7 @@
 
             <div class="input-group">
                 <label for="email">Adresse email</label>
-                <input type="text" id="email" placeholder="Entrer votre email">
+                <input type="email" id="email" placeholder="Entrer votre email">
             </div>
 
             <div class="input-group">
@@ -39,61 +44,46 @@
         </div>
     </main>
 
-</body>
-
-<script>
-    function login() {
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
-
-        if (!email || !password) {
-            alert('Veuillez remplir tous les champs.');
-            return;
-        }
-
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-        let validUser = users.find(user => user.email === email && user.password === password);
-
-        if (validUser) {
-            localStorage.setItem('prenom', validUser.prenom);
-            localStorage.setItem('nom', validUser.nom);
-
-            alert('Connexion réussie !');
-            window.location.href = 'ACCUEIL.html';
-        } else {
-            alert('Email ou mot de passe incorrect.');
-        }
-    }
-
-    function forgotPassword() {
-        alert("Vous allez être redirigé sur une page afin de recevoir un lien de réinitialisation de votre mot de passe.");
-    }
-</script>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-    <div class="footer-container">
-
-        <div class="footer-section">
-            <h4>Contact</h4>
-            <p>contact@smartpark.com</p>
+    <footer style="margin-top: auto;">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>contact@smartpark.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Questions / Réponses</h4>
+                <a href="FAQ.html">FAQ</a>
+                <a href="AIDE.html">Centre d’aide</a>
+            </div>
         </div>
-
-        <div class="footer-section">
-            <h4>Questions / Réponses</h4>
-            <a href="FAQ.html">FAQ</a>
-            <a href="AIDE.html">Centre d’aide</a>
+        <div class="footer-bottom">
+            © 2026 SmartPark — Gestion intelligente du stationnement urbain
         </div>
+    </footer>
 
-    </div>
+    <script>
+        function login() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
 
-    <div class="footer-bottom">
-        © 2026 SmartPark — Gestion intelligente du stationnement urbain
-    </div>
-</footer>
+            if (!email || !password) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let validUser = users.find(user => user.email === email && user.password === password);
+
+            if (validUser) {
+                localStorage.setItem('prenom', validUser.prenom);
+                localStorage.setItem('nom', validUser.nom);
+                alert('Connexion réussie !');
+                window.location.href = 'accueil.html';
+            } else {
+                alert('Email ou mot de passe incorrect.');
+            }
+        }
+    </script>
 
 </body>
-
 </html>

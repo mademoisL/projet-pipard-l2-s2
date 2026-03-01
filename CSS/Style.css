@@ -33,37 +33,55 @@ h2 {
     margin-bottom: 40px;
 }
 
+
 /* ================= NAVBAR ================= */
 
-/* Barre de navigation fixée en haut */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 50px;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(10px); /* Effet flou */
+    backdrop-filter: blur(10px);
     border-bottom: var(--glass-border);
     z-index: 1000;
     box-sizing: border-box;
 }
 
-/* Logo du site */
-.logo {
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre le logo et le texte SMARTPARK */
+}
+
+.logo-text {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
+    color: var(--text-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Lueur blanche discrète */
+    margin: 0;
 }
 
-/* Liens de navigation */
+/* Style pour l'image du logo */
+.header-logo {
+    height: 45px;
+    width: auto;
+    /* On passe à 10px et on utilise du blanc pur sans opacité */
+    filter: drop-shadow(0 0 5px #ffffff); 
+    object-fit: contain;
+}
+
+/* Liens de navigation (Inchangé mais regroupé pour la propreté) */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 30px;
+    margin: 0;
 }
 
 .nav-links a {
@@ -73,12 +91,10 @@ nav {
     transition: 0.3s;
 }
 
-/* Effet au survol */
 .nav-links a:hover {
     color: var(--accent-color);
     text-shadow: 0 0 10px var(--accent-color);
 }
-
 /* ================= LAYOUT ================= */
 
 /* Structure principale des sections */
