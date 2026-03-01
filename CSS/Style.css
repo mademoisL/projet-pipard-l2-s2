@@ -95,6 +95,10 @@ section {
     border-bottom: var(--glass-border);
 }
 
+#accueil.hero {
+    min-height: 100vh;
+    padding-top: 10px;
+}
 
 /* ================= CARROUSEL AVIS ================= */
 
