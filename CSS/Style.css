@@ -204,6 +204,7 @@ section {
     background: #fff;
     border-radius: 50%;
     filter: blur(1px);
+    animation: headlightsToggle 20s infinite ease-in-out;
     box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0.6); /* Faisceau qui éclaire la route */
 }
 
@@ -220,19 +221,34 @@ section {
     0%   { left: -10%; top: 55%; transform: rotate(0deg); } 
     25%  { left: 52%; top: 55%; transform: rotate(0deg); } /* Dépasse la place libre */
     30%  { left: 52%; top: 55%; transform: rotate(0deg); } /* Arrêt pour observer */
-
-    /* PHASE 2 : Le créneau (braque puis contre-braque) */
     40%  { left: 52%; top: 55%; transform: rotate(-35deg); } /* Recule : l'arrière plonge dans la place */
     50%  { left: 45%; top: 68%; transform: rotate(5deg); }   /* Contre-braque : l'avant rentre (léger surplus d'angle) */
-    
-    /* PHASE 3 : Ajustement et stationnement */
     55%  { left: 45%; top: 68%; transform: rotate(0deg); }   /* Petite marche avant pour s'aligner parfaitement au centre */
     75%  { left: 45%; top: 68%; transform: rotate(0deg); }   /* Reste garée */
-
-    /* PHASE 4 : Sortie et départ */
     82%  { left: 45%; top: 65%; transform: rotate(-25deg); } /* Braque à gauche pour sortir le nez */
     88%  { left: 52%; top: 55%; transform: rotate(0deg); }   /* Se redresse sur la voie */
     100% { left: 120%; top: 55%; transform: rotate(0deg); }  /* Disparaît de l'écran */
+}
+
+@keyframes headlightsToggle {
+    0%, 55% { 
+        background: #fff;
+        box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0.6); 
+    }
+    
+    58% { 
+        background: #444; /* L'ampoule devient sombre */
+        box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0); /* Plus de lumière */
+    }
+    
+    72% { 
+        background: #444; 
+        box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0); 
+    }
+    75%, 100% { 
+        background: #fff;
+        box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0.6); 
+    }
 }
 
 /* ================= CARROUSEL AVIS ================= */
@@ -275,7 +291,7 @@ section {
 .review-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
-    box-shadow: 0 0 20px rgba(0,242,255,0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 /* ================= CARTES ================= */
@@ -475,6 +491,73 @@ button:hover,
     color: white;
 }
 
+/* ================= FAQ STYLE ================= */
+
+.faq-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.faq-question {
+    cursor: pointer;
+    padding: 22px;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s all ease;
+    font-weight: 500;
+}
+
+.faq-question:hover {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 12px 12px;
+    padding: 0 22px;
+    opacity: 0;
+}
+
+/* État actif quand on clique */
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Assez grand pour le texte */
+    padding: 20px 22px;
+    border: var(--glass-border);
+    border-top: none;
+    opacity: 1;
+}
+
+.faq-item.active .faq-question {
+    border-radius: 12px 12px 0 0;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Le + devient un x */
+}
+
 /* ===== SECTION APPAREILS ===== */
 
 .appareils-container {
@@ -588,6 +671,8 @@ button:hover,
 /* ================= FOOTER ================= */
 
 footer {
+    width: 100%;             /* Force le footer à prendre toute la largeur */
+    box-sizing: border-box;  /* Évite que le padding ne fasse déborder le footer */
     padding: 40px;
     background: #050505;
     border-top: var(--glass-border);
@@ -595,6 +680,20 @@ footer {
     justify-content: space-between;
     color: #666;
     font-size: 0.9rem;
+    margin-top: auto;        /* Le pousse en bas si tu utilises flexbox sur le body */
+}
+
+/* Force les liens du footer à ignorer les couleurs par défaut du navigateur */
+footer a, 
+footer a:visited {
+    color: inherit;    /* Prend la couleur du texte parent (le gris du footer) */
+    text-decoration: none; /* Enlève le soulignement si tu n'en veux pas */
+    transition: 0.3s;
+}
+
+/* Optionnel : un léger changement au survol pour savoir que c'est cliquable */
+footer a:hover {
+    color: #ffffff;    /* Devient blanc quand on passe la souris dessus */
 }
 
 /* ================= RESPONSIVES ================= */
@@ -612,4 +711,13 @@ footer {
         width: 90%;
         padding: 30px;
     }
+}
+
+/* ================= A propos de nous  ================= */
+.hero-about {
+    position: relative;
+    text-align: center;
+    color: white;
+    pointer-events: none;
+    min-height: 100vh;
 }
