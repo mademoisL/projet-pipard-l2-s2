@@ -586,6 +586,11 @@ button:hover,
     transform: rotate(45deg); /* Le + devient un x */
 }
 
+textarea {
+    resize: none;
+    font-family: inherit;
+}
+
 /* ===== SECTION APPAREILS ===== */
 
 .appareils-container {
