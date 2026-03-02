@@ -155,7 +155,7 @@ section {
 .parking-spots {
     position: absolute;
     bottom: 25%;
-    right: 25px;
+    right: 45px;
     width: 100%;
     display: flex;
     justify-content: center; /* Centre le bloc de places */
@@ -164,7 +164,7 @@ section {
 /* Design d'une place */
 .spot {
     width: 120px;
-    height: 60px;
+    height: 37px;
     border: 2px solid rgba(255, 255, 255, 0.4);
     border-top: none; /* Ouvert vers la route */
     position: relative;
@@ -219,14 +219,14 @@ section {
 @keyframes realParallelPark {
     /* PHASE 1 : Arrivée et arrêt à côté de la place de devant */
     0%   { left: -10%; top: 55%; transform: rotate(0deg); } 
-    25%  { left: 52%; top: 55%; transform: rotate(0deg); } /* Dépasse la place libre */
-    30%  { left: 52%; top: 55%; transform: rotate(0deg); } /* Arrêt pour observer */
-    40%  { left: 52%; top: 55%; transform: rotate(-35deg); } /* Recule : l'arrière plonge dans la place */
-    50%  { left: 45%; top: 68%; transform: rotate(5deg); }   /* Contre-braque : l'avant rentre (léger surplus d'angle) */
-    55%  { left: 45%; top: 68%; transform: rotate(0deg); }   /* Petite marche avant pour s'aligner parfaitement au centre */
-    75%  { left: 45%; top: 68%; transform: rotate(0deg); }   /* Reste garée */
-    82%  { left: 45%; top: 65%; transform: rotate(-25deg); } /* Braque à gauche pour sortir le nez */
-    88%  { left: 52%; top: 55%; transform: rotate(0deg); }   /* Se redresse sur la voie */
+    25%  { left: 50%; top: 55%; transform: rotate(0deg); } /* Dépasse la place libre */
+    30%  { left: 50%; top: 55%; transform: rotate(0deg); } /* Arrêt pour observer */
+    40%  { left: 50%; top: 55%; transform: rotate(-35deg); } /* Recule : l'arrière plonge dans la place */
+    50%  { left: 43.6%; top: 68%; transform: rotate(5deg); }   /* Contre-braque : l'avant rentre (léger surplus d'angle) */
+    55%  { left: 43.6%; top: 68%; transform: rotate(0deg); }   /* Petite marche avant pour s'aligner parfaitement au centre */
+    75%  { left: 43.6%; top: 68%; transform: rotate(0deg); }   /* Reste garée */
+    82%  { left: 43.6%; top: 65%; transform: rotate(-25deg); } /* Braque à gauche pour sortir le nez */
+    88%  { left: 50%; top: 55%; transform: rotate(0deg); }   /* Se redresse sur la voie */
     100% { left: 120%; top: 55%; transform: rotate(0deg); }  /* Disparaît de l'écran */
 }
 
@@ -392,7 +392,7 @@ section {
 .price-card:hover {
     transform: translateY(-10px) scale(1.03);
     border-color: var(--accent-color);
-    box-shadow: 0 0 30px rgba(0,242,255,0.3);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .price-card h3 {
@@ -422,7 +422,7 @@ section {
 .highlight {
     transform: scale(1.05);
     border: 2px solid var(--accent-color);
-    box-shadow: 0 0 40px rgba(0,242,255,0.4);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
 
 /* ================= FORMULAIRES ================= */
@@ -548,7 +548,7 @@ button:hover,
 .faq-question:hover {
     border-color: var(--accent-color);
     background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .faq-answer {
@@ -609,7 +609,7 @@ button:hover,
 
 .card-appareil:hover {
     border-color: var(--accent-color);
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .card-appareil h3 {
