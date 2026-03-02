@@ -655,6 +655,8 @@ button:hover,
 /* ================= FOOTER ================= */
 
 footer {
+    width: 100%;             /* Force le footer à prendre toute la largeur */
+    box-sizing: border-box;  /* Évite que le padding ne fasse déborder le footer */
     padding: 40px;
     background: #050505;
     border-top: var(--glass-border);
@@ -662,6 +664,20 @@ footer {
     justify-content: space-between;
     color: #666;
     font-size: 0.9rem;
+    margin-top: auto;        /* Le pousse en bas si tu utilises flexbox sur le body */
+}
+
+/* Force les liens du footer à ignorer les couleurs par défaut du navigateur */
+footer a, 
+footer a:visited {
+    color: inherit;    /* Prend la couleur du texte parent (le gris du footer) */
+    text-decoration: none; /* Enlève le soulignement si tu n'en veux pas */
+    transition: 0.3s;
+}
+
+/* Optionnel : un léger changement au survol pour savoir que c'est cliquable */
+footer a:hover {
+    color: #ffffff;    /* Devient blanc quand on passe la souris dessus */
 }
 
 /* ================= RESPONSIVES ================= */
