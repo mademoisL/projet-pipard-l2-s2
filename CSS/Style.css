@@ -613,3 +613,12 @@ footer {
         padding: 30px;
     }
 }
+
+/* ================= A propos de nous  ================= */
+.hero-about {
+    position: relative;
+    text-align: center;
+    color: white;
+    pointer-events: none;
+    min-height: 100vh;
+}
