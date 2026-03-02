@@ -105,7 +105,7 @@ nav {
 
 /* Structure principale des sections */
 main, section {
-    padding: 140px 50px 100px; /* Espace sous la navbar */
+    padding: 80px 50px 80px; /* Espace sous la navbar */
 }
 
 section {
@@ -137,7 +137,7 @@ section {
     text-align: center;
     color: white;
     pointer-events: none;
-    padding-top: 100px;
+    padding-top: 170px;
     padding-right: 100px;
     min-height: 100vh;
 }
@@ -164,7 +164,7 @@ section {
 /* Design d'une place */
 .spot {
     width: 120px;
-    height: 37px;
+    height: 35px;
     border: 2px solid rgba(255, 255, 255, 0.4);
     border-top: none; /* Ouvert vers la route */
     position: relative;
@@ -586,11 +586,6 @@ button:hover,
     transform: rotate(45deg); /* Le + devient un x */
 }
 
-textarea {
-    resize: none;
-    font-family: inherit;
-}
-
 /* ===== SECTION APPAREILS ===== */
 
 .appareils-container {
@@ -753,13 +748,7 @@ footer a:hover {
     color: white;
     pointer-events: none;
     min-height: 100vh;
-}
-
-/* ================= a propos de nous  ================= */
-.hero-about {
-    text-align: center;
     padding: 120px 10% 80px;
-    position: relative;
 }
 
 .hero-about h1 {
@@ -791,4 +780,27 @@ footer a:hover {
     to {
         stroke-dashoffset: 0;
     }
+}
+
+/* ================= Connexion  ================= */
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* On force la couleur blanche, même si le lien a déjà été cliqué */
+.links a, 
+.links a:visited {
+    color: white; /* Interdit formellement le violet */
+    text-decoration: none; /* Enlève le trait de soulignement par défaut */
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+/* Un petit effet néon au survol pour rester cohérent avec le reste du site */
+.links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
