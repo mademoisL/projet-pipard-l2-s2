@@ -221,42 +221,30 @@ section {
     0%   { left: -10%; top: 55%; transform: rotate(0deg); } 
     25%  { left: 52%; top: 55%; transform: rotate(0deg); } /* Dépasse la place libre */
     30%  { left: 52%; top: 55%; transform: rotate(0deg); } /* Arrêt pour observer */
-
-    /* PHASE 2 : Le créneau (braque puis contre-braque) */
     40%  { left: 52%; top: 55%; transform: rotate(-35deg); } /* Recule : l'arrière plonge dans la place */
     50%  { left: 45%; top: 68%; transform: rotate(5deg); }   /* Contre-braque : l'avant rentre (léger surplus d'angle) */
-    
-    /* PHASE 3 : Ajustement et stationnement */
     55%  { left: 45%; top: 68%; transform: rotate(0deg); }   /* Petite marche avant pour s'aligner parfaitement au centre */
     75%  { left: 45%; top: 68%; transform: rotate(0deg); }   /* Reste garée */
-
-    /* PHASE 4 : Sortie et départ */
     82%  { left: 45%; top: 65%; transform: rotate(-25deg); } /* Braque à gauche pour sortir le nez */
     88%  { left: 52%; top: 55%; transform: rotate(0deg); }   /* Se redresse sur la voie */
     100% { left: 120%; top: 55%; transform: rotate(0deg); }  /* Disparaît de l'écran */
 }
 
-/* L'animation de l'allumage/extinction des phares */
 @keyframes headlightsToggle {
-    /* PHASE 1 : Allumés (Arrivée et manœuvre) */
     0%, 55% { 
         background: #fff;
         box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0.6); 
     }
     
-    /* PHASE 2 : Extinction en douceur une fois garée */
     58% { 
         background: #444; /* L'ampoule devient sombre */
         box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0); /* Plus de lumière */
     }
     
-    /* PHASE 3 : Reste éteint pendant le stationnement */
     72% { 
         background: #444; 
         box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0); 
     }
-    
-    /* PHASE 4 : Rallumage juste avant le départ */
     75%, 100% { 
         background: #fff;
         box-shadow: 15px 0 15px 2px rgba(255, 255, 255, 0.6); 
