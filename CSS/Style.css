@@ -324,20 +324,24 @@ section {
 /* ================= GRILLES ================= */
 
 /* Grilles responsives */
-.grid,
-.grid-container {
+.grid-values {
     display: grid;
-    gap: 30px;
-}
-
-.grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.grid-container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    max-width: 1200px;
-    width: 100%;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.value-item {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.value-item .icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
 /* ================= ABONNEMENTS ================= */
@@ -720,4 +724,42 @@ footer a:hover {
     color: white;
     pointer-events: none;
     min-height: 100vh;
+}
+
+/* ================= a propos de nous  ================= */
+.hero-about {
+    text-align: center;
+    padding: 120px 10% 80px;
+    position: relative;
+}
+
+.hero-about h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.heart-line {
+    width: 420px;
+    max-width: 90%;
+    margin: auto;
+}
+
+.heart-line path {
+    stroke: #ff4d6d;
+    stroke-width: 3;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawHeart 3s ease forwards;
+}
+
+@keyframes drawHeart {
+    to {
+        stroke-dashoffset: 0;
+    }
 }
