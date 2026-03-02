@@ -264,11 +264,11 @@ section {
     display: flex;
     gap: 30px;
     width: max-content;
-    animation: scroll 40s linear infinite; /* vitesse lente */
+    animation: scroll 40s linear infinite;
 }
 
 .carousel-track:hover {
-    animation-play-state: paused; /* pause au hover */
+    animation-play-state: paused;
 }
 
 @keyframes scroll {
@@ -276,27 +276,9 @@ section {
     100% { transform: translateX(calc(-50% - 15px)); }
 }
 
-.review-card {
-    min-width: 300px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 15px;
-    padding: 25px;
-    backdrop-filter: blur(10px);
-    color: white;
-    transition: 0.3s;
-    width: 350px;
-}
+/* ================= CARTES & DESIGN ================= */
 
-.review-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-/* ================= CARTES ================= */
-
-/* Style commun aux cartes */
+/* Style de base pour TOUTES les cartes */
 .card,
 .contact-card,
 .price-card,
@@ -305,25 +287,65 @@ section {
     background: var(--glass-bg);
     border: var(--glass-border);
     border-radius: 15px;
-}
-
-/* Animation légère au survol */
-.card,
-.contact-card,
-.review-card {
     padding: 30px;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    color: white; /* Texte en blanc */
 }
 
-.card:hover,
+/* Spécificité pour les cartes d'avis (review) */
+.review-card {
+    min-width: 300px;
+    width: 350px;
+    backdrop-filter: blur(10px);
+}
+
+/* Effet au survol des cartes (Accent Blanc) */
+.card:hover, 
+.contact-card:hover, 
+.review-card:hover, 
+.price-card:hover,
 .social:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
+    transform: translateY(-8px);
+    border-color: #ffffff; /* Accent blanc pur */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-/* ================= GRILLES ================= */
+/* --- Style pour les liens qui enveloppent les cartes --- */
+.card-link {
+    text-decoration: none; 
+    color: inherit;        /* Prend le blanc de la carte */
+    display: flex;        /* Permet au lien de remplir toute la hauteur */
+    flex: 1;
+    min-width: 320px;     /* Largeur minimale pour éviter l'écrasement */
+    max-width: 380px;     /* Largeur maximale pour l'équilibre visuel */
+}
 
-/* Grilles responsives */
+/* ANTI-VIOLET : On force le blanc même si le lien est visité */
+.card-link:visited {
+    color: inherit !important;
+}
+
+/* Assure que l'animation de la carte se déclenche via le lien */
+.card-link:hover .card {
+    border-color: #ffffff;
+    transform: translateY(-8px);
+}
+
+/* ================= GRILLES & ALIGNEMENT ================= */
+
+/* Conteneur principal pour mettre les cartes les unes à côté des autres */
+#presentation .faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .grid,
 .grid-container {
     display: grid;
@@ -339,7 +361,6 @@ section {
     max-width: 1200px;
     width: 100%;
 }
-
 /* ================= ABONNEMENTS ================= */
 
 .pricing-wrapper {
