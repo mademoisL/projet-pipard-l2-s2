@@ -475,6 +475,73 @@ button:hover,
     color: white;
 }
 
+/* ================= FAQ STYLE ================= */
+
+.faq-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.faq-question {
+    cursor: pointer;
+    padding: 22px;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s all ease;
+    font-weight: 500;
+}
+
+.faq-question:hover {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 12px 12px;
+    padding: 0 22px;
+    opacity: 0;
+}
+
+/* État actif quand on clique */
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Assez grand pour le texte */
+    padding: 20px 22px;
+    border: var(--glass-border);
+    border-top: none;
+    opacity: 1;
+}
+
+.faq-item.active .faq-question {
+    border-radius: 12px 12px 0 0;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Le + devient un x */
+}
+
 /* ===== SECTION APPAREILS ===== */
 
 .appareils-container {

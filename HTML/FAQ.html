@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTPARK | FAQ</title>
+    <link rel="icon" type="image/png" href="../IMAGES/Logo sans nom.png">
+    <link rel="stylesheet" href="../CSS/Style.css">
+</head>
+
+<body class="page-centree">
+
+<nav>
+    <div class="nav-left">
+        <img src="../IMAGES/Logo sans nom.png" alt="Logo SmartPark" class="header-logo">
+        <div class="logo-text">SMARTPARK</div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="Abonnements.html">Nos abonnements</a></li>
+        <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
+        <li><a href="Nous.html">À propos de nous</a></li>
+        <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Connexion.html">Connexion</a></li>
+        <li><a href="Profil.html">Profil</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2 style="color: var(--accent-color);">Questions Fréquentes</h2>
+        
+        <div class="faq-container">
+    <h3 style="color: var(--accent-color); margin: 30px 0 15px;">Général</h3>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Qu'est-ce que SMARTPARK ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>SMARTPARK est une solution de gestion intelligente du stationnement urbain qui permet de réserver, sécuriser et payer sa place de parking via une application mobile unique.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Où sont situées les places SMARTPARK ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Nos places sont actuellement déployées dans les zones à forte densité de PARIS et de sa petite couronne. Consultez la carte dans l'application pour voir les emplacements en temps réel.</p>
+        </div>
+    </div>
+
+    <h3 style="color: var(--accent-color); margin: 30px 0 15px;">Réservations</h3>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Combien de temps à l'avance puis-je réserver ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Selon votre abonnement SMARTPARK, vous pouvez réserver de 30 minutes à 7 jours à l'avance.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Puis-je annuler une réservation ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Oui, l'annulation est gratuite jusqu'à 15 minutes avant l'heure prévue. Passé ce délai, des frais de dossier peuvent être retenus.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Puis-je prolonger mon stationnement en cours ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Oui, directement depuis l'application SMARTPARK, si la place n'a pas été réservée par un autre utilisateur après vous.</p>
+        </div>
+    </div>
+
+    <h3 style="color: var(--accent-color); margin: 30px 0 15px;">Fonctionnement technique</h3>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Comment l'arceau sait-il que je suis arrivé ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Le module Bluetooth de la place détecte votre smartphone. Une fois la connexion établie, l'arceau SMARTPARK s'abaisse automatiquement.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Que faire si l'arceau ne s'abaisse pas ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Vérifiez que votre Bluetooth est activé. Si le problème persiste, utilisez le bouton "Forcer l'ouverture" dans l'application ou contactez l'assistance SMARTPARK via le bouton d'urgence.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Les bornes de recharge sont-elles compatibles avec tous les véhicules ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Nos bornes utilisent le standard Type 2, compatible avec la majorité des véhicules électriques et hybrides rechargeables en Europe.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>À quoi servent les caméras LAPI ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Elles sécurisent la zone et vérifient que le véhicule garé correspond bien à la réservation enregistrée sur SMARTPARK.</p>
+        </div>
+    </div>
+
+    <h3 style="color: var(--accent-color); margin: 30px 0 15px;">Abonnements & Prix</h3>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>L'application SMARTPARK est-elle gratuite ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Le téléchargement et l'accès à la carte sont gratuits. Vous ne payez que lors de vos réservations ou via un forfait mensuel.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Quels sont les moyens de paiement acceptés ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Nous acceptons les cartes bancaires (Visa, Mastercard), Apple Pay, Google Pay et les prélèvements SEPA pour les abonnés Premium.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Comment obtenir une facture ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Toutes vos factures sont disponibles et téléchargeables au format PDF dans la rubrique "Mon Profil" de l'écosystème SMARTPARK.</p>
+        </div>
+    </div>
+
+    <h3 style="color: var(--accent-color); margin: 30px 0 15px;">Incidents</h3>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Une voiture non autorisée occupe ma place réservée, que faire ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Signalez l'incident immédiatement via l'application. SMARTPARK vous redirigera vers la place disponible la plus proche et enverra une alerte au service de contrôle.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>J'ai perdu mon badge NFC SMARTPARK, comment faire ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Désactivez votre badge dans l'onglet "Sécurité" de l'application et commandez-en un nouveau. En attendant, utilisez votre smartphone pour l'identification.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Que se passe-t-il en cas de panne de courant urbaine ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Tous les appareils SMARTPARK possèdent une batterie de secours leur permettant de fonctionner en mode dégradé pendant 48 heures.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Comment contacter le support client ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            <p>Notre équipe est disponible 24h/24 et 7j/7 via le chat de l'application ou à l'adresse contact@smartpark.com.</p>
+        </div>
+    </div>
+</div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>contact@smartpark.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Questions / Réponses</h4>
+            <a href="FAQ.html">FAQ</a>
+            <a href="AIDE.html">Centre d’aide</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 SmartPark — Gestion intelligente du stationnement urbain
+    </div>
+</footer>
+
+<script>
+    function toggleFaq(element) {
+        // On récupère l'élément parent (.faq-item)
+        const item = element.parentElement;
+        // On ajoute ou enlève la classe 'active'
+        item.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
