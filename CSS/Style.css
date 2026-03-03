@@ -420,7 +420,6 @@ section {
 
 /* Carte premium mise en avant */
 .highlight {
-    transform: scale(1.05);
     border: 2px solid var(--accent-color);
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
