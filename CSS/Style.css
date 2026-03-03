@@ -747,7 +747,7 @@ footer a:hover {
     color: white;
     pointer-events: none;
     min-height: 100vh;
-    padding: 120px 10% 80px;
+    padding: 0px 10% 80px;
 }
 
 .hero-about h1 {
