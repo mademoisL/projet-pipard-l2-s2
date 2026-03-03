@@ -144,14 +144,9 @@
 
 <script>
 function toggleCard(card) {
-    // Optionnel : ferme les autres cartes quand on en ouvre une
-    /*
     document.querySelectorAll('.card-appareil').forEach(c => {
         if(c !== card) c.classList.remove('active');
     });
-    */
-    
-    // Alterne la classe active sur la carte cliquée
     card.classList.toggle('active');
 }
 </script>
