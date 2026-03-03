@@ -37,23 +37,69 @@
             <p>Nous croyons qu'une ville intelligente commence par une gestion optimisée de l'espace. Grâce à l'alliance de l'intelligence artificielle et de l'Internet des Objets (IoT), nous transformons les zones de stationnement passives en une infrastructure dynamique et connectée.</p>
         </div>
 
-        <div class="grid-values">
-            <div class="value-item card">
-                <span class="icon">🚀</span>
-                <h3>Innovation</h3>
-                <p>Des dispositifs de pointe (LAPI, capteurs) pour une précision en temps réel.</p>
-            </div>
-            <div class="value-item card">
-                <span class="icon">🌿</span>
-                <h3>Éco-responsabilité</h3>
-                <p>Moins de temps de recherche signifie moins d'émissions de CO2.</p>
-            </div>
-            <div class="value-item card">
-                <span class="icon">✨</span>
-                <h3>Simplicité</h3>
-                <p>De la réservation à la recharge, tout est géré depuis votre smartphone.</p>
-            </div>
-        </div>
+        <div class="grid-values" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: stretch;">
+    
+    <div class="value-item card">
+        <span class="icon">🚀</span>
+        <h3>Innovation</h3>
+        <p style="text-align: justify;">Nous repoussons les limites de la Smart City avec nos technologies propriétaires. En intégrant des caméras LAPI et des capteurs IoT ultra-basse consommation, nous créons un écosystème capable de prédire l'occupation des places. Cette précision permet une gestion dynamique des flux, réduisant ainsi les embouteillages et optimisant chaque mètre carré de l'espace urbain disponible.</p>
+    </div>
+
+    <div class="value-item card">
+        <span class="icon">🌿</span>
+        <h3>Éco-responsabilité</h3>
+        <p style="text-align: justify;">La protection de l'environnement est au cœur de SMARTPARK. En diminuant de 30% le temps de recherche d'une place, nous réduisons drastiquement les émissions de CO2. <strong>Engagement concret :</strong> pour chaque abonnement souscrit, nous finançons la plantation d'un arbre en zone urbaine.</p>
+    </div>
+
+    <div class="value-item card">
+        <span class="icon">✨</span>
+        <h3>Simplicité</h3>
+        <p style="text-align: justify;">Nous croyons qu'une technologie complexe doit offrir une expérience utilisateur limpide. Notre plateforme centralise tous les besoins : de la réservation instantanée à la facturation automatisée, sans ticket papier ni attente. Cette approche "zéro friction" redonne aux citadins leur ressource la plus précieuse : le temps, tout en simplifiant la gestion urbaine.</p>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 100px 0;">
+    <p style="font-size: 2.2rem; color: white; font-weight: 300;">
+        🌿 Nous en sommes déjà à 
+        <span id="tree-counter" data-target="237" class="logo-text" style="font-size: 5rem; display: block; margin: 20px 0;">0</span> 
+        arbres plantés !
+    </p>
+</div>
+
+<script>
+    function animateCounter(obj, start, end, duration) {
+        let current = start;
+        let range = end - start;
+        let increment = 1;
+        // On calcule le temps par étape pour que ça dure exactement 'duration'
+        let stepTime = Math.abs(Math.floor(duration / range));
+
+        let timer = setInterval(() => {
+            current += increment;
+            obj.textContent = current;
+            if (current >= end) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counterElement = entry.target;
+                const target = parseInt(counterElement.getAttribute('data-target'));
+                animateCounter(counterElement, 0, target, 2500); // Animation fluide de 2.5s
+                observer.unobserve(counterElement);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const treeCounter = document.getElementById('tree-counter');
+    if (treeCounter) {
+        observer.observe(treeCounter);
+    }
+</script>
+
     </section>
 </main>
 
