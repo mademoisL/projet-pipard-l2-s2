@@ -747,7 +747,7 @@ footer a:hover {
     color: white;
     pointer-events: none;
     min-height: 100vh;
-    padding: 120px 10% 80px;
+    padding: 0px 10% 80px;
 }
 
 .hero-about h1 {
@@ -789,16 +789,14 @@ footer a:hover {
     margin-top: 20px;
 }
 
-/* On force la couleur blanche, même si le lien a déjà été cliqué */
 .links a, 
 .links a:visited {
-    color: white; /* Interdit formellement le violet */
-    text-decoration: none; /* Enlève le trait de soulignement par défaut */
+    color: white;
+    text-decoration: none; 
     font-size: 0.85rem;
     transition: 0.3s;
 }
 
-/* Un petit effet néon au survol pour rester cohérent avec le reste du site */
 .links a:hover {
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
@@ -806,29 +804,25 @@ footer a:hover {
 
 /* ================= PAGE A PROPOS ================= */
 
-/* 1. On contraint la largeur de toute la section pour que tout s'aligne */
 .about-content {
-    max-width: 1000px; /* Largeur maximale de la zone de lecture */
+    max-width: 1000px;
     width: 100%;
-    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px; /* L'espace entre la grande carte et les 3 petites */
+    gap: 40px;
     padding: 0 20px;
     box-sizing: border-box;
 }
 
-/* 2. La grande carte "Notre Histoire" prend automatiquement 100% de la largeur */
 .about-text {
     width: 100%;
     box-sizing: border-box;
 }
 
-/* 3. On crée la grille pour les 3 petites cartes */
 .grid-values {
     display: grid;
-    /* Sur PC : 3 colonnes égales. Sur mobile : ça passe sur 1 seule colonne automatiquement */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; /* L'espace entre les 3 cartes */
+    gap: 30px;
     width: 100%;
 }
