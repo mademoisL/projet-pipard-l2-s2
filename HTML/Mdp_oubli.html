@@ -5,35 +5,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMARTPARK | Réinitialisation</title>
+    <link rel="icon" type="image/png" href="../IMAGES/Logo sans nom.png">
     <link rel="stylesheet" href="../CSS/Style.css">
 </head>
 
-<body>
+<br>
+<br>
 
-    <div class="conteneur">
-
-        <h1>Réinitialiser le mot de passe</h1>
-
-        <p>
-            Entrez votre adresse email.  
-            Si un compte existe, un lien de réinitialisation vous sera envoyé.
+<body class="page-centree"> <div class="login-box" style="max-width: 450px; width: 90%;">
+        
+        <h1>Mot de passe oublié</h1>
+        
+        <p style="color: #888; text-align: center; margin-bottom: 30px; font-size: 0.9rem;">
+            Entrez votre adresse email. Si un compte existe, un lien vous sera envoyé.
         </p>
 
-        <input type="text" id="email" placeholder="Entrer votre email">
+        <div class="input-group">
+            <label>Adresse Email</label>
+            <input type="email" id="email" placeholder="Entrer votre email" required>
+        </div>
 
-        <button class="btn" onclick="resetPassword()">Envoyer le lien</button>
+        <button class="btn" onclick="resetPassword()" style="margin-top: 10px;">Envoyer le lien</button>
 
-        <a href="CONNEXION.html" class="back-link">Retour à la connexion</a>
-
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="Connexion.html" class="card-link" style="font-size: 0.85rem; opacity: 0.7;">
+                Retour à la connexion
+            </a>
+        </div>
     </div>
 
-    <footer>
-        © 2026 SMARTPARK — Solution intelligente de gestion du stationnement urbain
-    </footer>
+<br>
+<br>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>contact@smartpark.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Questions / Réponses</h4>
+            <a href="FAQ.html">FAQ</a>
+            <a href="AIDE.html">Centre d’aide</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 SMARTPARK — Gestion intelligente du stationnement urbain
+    </div>
+</footer>
 
 <script>
     function resetPassword() {
-
         let email = document.getElementById('email').value;
 
         if (!email) {
@@ -45,7 +67,7 @@
         let userExists = users.find(user => user.email === email);
 
         if (userExists) {
-            alert("Un lien de réinitialisation a été envoyé à votre adresse email (simulation).");
+            alert("Un lien de réinitialisation a été envoyé à : " + email);
         } else {
             alert("Aucun compte associé à cette adresse.");
         }
@@ -53,5 +75,4 @@
 </script>
 
 </body>
-
 </html>
