@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTPARK | Centre d'Aide</title>
+    <link rel="icon" type="image/png" href="../IMAGES/Logo sans nom.png">
+    <link rel="stylesheet" href="../CSS/Style.css">
+</head>
+
+<body class="page-centree" style="padding-top: 100px; padding-bottom: 50px; height: auto;">
+
+<nav>
+    <div class="nav-left">
+        <img src="../IMAGES/Logo sans nom.png" alt="Logo SmartPark" class="header-logo">
+        <div class="logo-text">SMARTPARK</div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="Abonnements.html">Nos abonnements</a></li>
+        <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
+        <li><a href="Nous.html">À propos de nous</a></li>
+        <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Connexion.html">Connexion</a></li>
+        <li><a href="Profil.html">Profil</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2 style="color: var(--accent-color); margin-bottom: 10px;">Centre d'Aide & Maintenance</h2>
+        <p style="text-align: center; color: #888; margin-bottom: 40px;">Assistance technique et procédures d'urgence SMARTPARK.</p>
+        
+        <div class="faq-container">
+            
+            <div class="login-box" style="max-width: 800px; width: 100%; border-color: #ffffff; margin-bottom: 40px;">
+                <h3 style="color: #ffffff; text-align: center;">Service de Maintenance 24h/7j</h3>
+                <p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: #ffffff; margin: 15px 0;">Tel : 0800 123 456</p>
+                <p style="text-align: center; color: #888; font-size: 0.9rem;">(Appel gratuit depuis un poste fixe - Réservé aux incidents sur site)</p>
+            </div>
+
+            <h3 style="color: var(--accent-color); margin: 30px 0 15px; width: 100%; text-align: center;">Démarches en cas d'incident</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>1. Problème d'accès à la place (Arceau bloqué)</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Procédure :</strong><br>
+                    - Vérifiez que votre Bluetooth et votre GPS sont activés.<br>
+                    - Utilisez l'option "Forcer l'ouverture" dans l'onglet "Ma Réservation".<br>
+                    - Si l'arceau ne répond toujours pas, contactez la maintenance via le bouton d'urgence de l'appli.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>2. Place occupée par un tiers</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Procédure :</strong><br>
+                    - Ne tentez pas d'interpeller le conducteur.<br>
+                    - Cliquez sur "Signaler une occupation illégale" dans l'application.<br>
+                    - Prenez une photo de la plaque d'immatriculation si possible.<br>
+                    - SMARTPARK vous attribuera automatiquement une nouvelle place à proximité sans frais supplémentaires.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>3. Panne de borne de recharge</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Procédure :</strong><br>
+                    - Vérifiez que le câble est correctement enclenché des deux côtés.<br>
+                    - Scannez le QR Code présent sur la borne pour lancer un diagnostic à distance.<br>
+                    - Si le voyant reste rouge, débranchez votre véhicule et signalez la panne pour l'envoi d'un technicien.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="faq-contact">
+        <div class="login-box" style="max-width: 600px; width: 100%; margin: 50px auto 0;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Signaler une anomalie</h2>
+            <p style="color: #888; margin-bottom: 30px; text-align: center;">
+                Utilisez ce formulaire pour les retours non-urgents concernant l'état d'une station.
+            </p>
+            
+            <form action="#">
+                <div class="input-group">
+                    <label>Identifiant de la place (ex: PAR-042)</label>
+                    <input type="text" placeholder="Numéro écrit au sol" required>
+                </div>
+                
+                <div class="input-group">
+    				<label>Type de problème</label>
+    				<select style="width: 100%; padding: 12px; background-color: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 8px; appearance: none; cursor: pointer;">
+        				<option style="background-color: #1a1a1a; color: white;">Propreté / Déchets</option>
+        				<option style="background-color: #1a1a1a; color: white;">Éclairage défectueux</option>
+        				<option style="background-color: #1a1a1a; color: white;">Signalisation endommagée</option>
+        				<option style="background-color: #1a1a1a; color: white;">Autre</option>
+    				</select>
+				</div>
+                
+                <div class="input-group">
+                    <label>Description</label>
+                    <textarea placeholder="Détaillez l'anomalie constatée..." style="height: 100px;"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Envoyer le rapport</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>contact@smartpark.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Questions / Réponses</h4>
+            <a href="FAQ.html">FAQ</a>
+            <a href="AIDE.html">Centre d’aide</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 SMARTPARK — Gestion intelligente du stationnement urbain
+    </div>
+</footer>
+
+<script>
+    function toggleFaq(element) {
+        const item = element.parentElement;
+        item.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
