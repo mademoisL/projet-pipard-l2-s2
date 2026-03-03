@@ -12,12 +12,14 @@
 
     <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 20px;">
         
-        <div class="conteneur login-box" style="max-width: 550px; width: 100%; padding: 50px; box-sizing: border-box;">
+        <div class="conteneur login-box" style="max-width: 700px; width: 100%; padding: 60px; box-sizing: border-box;">
             
-            <div class="nav-left" style="justify-content: center; margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+            <a href="accueil.html" class="nav-left" style="justify-content: center; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; text-decoration: none;">
+    
                 <img src="../Images/Logo sans nom.png" alt="Logo" class="header-logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 5px white);">
-                <div class="logo-text" style="margin: 0;">SMARTPARK</div>
-            </div>
+                <div class="logo-text" style="margin: 0; color: white;">SMARTPARK</div>
+    
+            </a>
 
             <div class="ligne-texte">
                 <div class="hr-container"></div>
@@ -52,6 +54,14 @@
             if (!email || !password) {
                 alert('Veuillez remplir tous les champs.');
                 return;
+            }
+
+            if (email === "test@test.com" && password === "123") {
+                // On simule des fausses données de session pour que le site fonctionne
+                localStorage.setItem('prenom', 'Jury');
+                localStorage.setItem('nom', 'SmartPark');
+                window.location.href = 'accueil.html';
+                return; // On stoppe le script ici, on n'a pas besoin de chercher plus loin
             }
 
             let users = JSON.parse(localStorage.getItem('users')) || [];

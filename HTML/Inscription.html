@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMARTPARK | Inscription</title>
     <link rel="stylesheet" href="../CSS/Style.css">
 </head>
-<body class="page-centree">
 
-    <a href="ACCUEIL.html" class="back-to-home">← Retour à l'accueil</a>
+<body class="page-centree" style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
 
-    <main>
-        <div class="conteneur login-box">
-            <h1>SMARTPARK</h1>
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 20px;">
+        
+        <div class="conteneur login-box" style="max-width: 550px; width: 100%; padding: 50px; box-sizing: border-box;">
             
+            <a href="accueil.html" class="nav-left" style="justify-content: center; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; text-decoration: none;">
+    
+    <img src="../Images/Logo sans nom.png" alt="Logo" class="header-logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 5px white);">
+    
+    <div class="logo-text" style="margin: 0; color: white;">SMARTPARK</div>
+    
+</a>
+
             <div class="ligne-texte">
                 <div class="hr-container"></div>
                 <h3>Créer un compte</h3>
@@ -41,11 +49,10 @@
                     <input type="password" id="password" placeholder="Minimum 6 caractères" required>
                 </div>
 
-                <button type="submit" class="btn btn-login">Je m'inscris !</button>
+                <button type="submit" class="btn">Je m'inscris !</button>
             </form>
 
-            <div class="links">
-                <span>Déjà un compte ?</span>
+            <div class="links" style="display: flex; justify-content: center; margin-top: 20px;">
                 <a href="Connexion.html">Se connecter</a>
             </div>
         </div>
@@ -53,19 +60,19 @@
 
     <script>
         function register(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
+            event.preventDefault(); // Empêche le rechargement brutal de la page
 
             let prenom = document.getElementById('prenom').value;
             let nom = document.getElementById('nom').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
 
-            // Récupérer les utilisateurs existants ou créer un tableau vide
+            // Récupérer les utilisateurs existants
             let users = JSON.parse(localStorage.getItem('users')) || [];
 
             // Vérifier si l'email existe déjà
             if (users.find(user => user.email === email)) {
-                alert("Cet email est déjà utilisé.");
+                alert("Cet email est déjà utilisé. Veuillez vous connecter.");
                 return;
             }
 
@@ -73,7 +80,7 @@
             users.push({ prenom, nom, email, password });
             localStorage.setItem('users', JSON.stringify(users));
 
-            alert("Inscription réussie ! Vous allez être redirigé vers la page de connexion.");
+            // Redirection immédiate vers la page de connexion (plus pro qu'un popup)
             window.location.href = 'Connexion.html';
         }
     </script>

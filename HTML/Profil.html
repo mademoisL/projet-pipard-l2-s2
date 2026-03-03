@@ -5,194 +5,210 @@
     <meta charset="UTF-8">
     <title>SMARTPARK – Profil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../Images/Logo sans nom.png">
     <link rel="stylesheet" href="../CSS/Style.css">
 </head>
 
 <body>
 
-
-<!-- ================= NAVIGATION ================= -->
-
 <nav>
-    <div class="logo">SMARTPARK</div>
+    <div class="nav-left">
+        <img src="../Images/Logo sans nom.png" alt="Logo SmartPark" class="header-logo">
+        <div class="logo-text">SMARTPARK</div>
+    </div>
     <ul class="nav-links">
         <li><a href="accueil.html">Accueil</a></li>
-        <li><a href="#" onclick="logout()">Déconnexion</a></li>
         <li><a href="Abonnements.html">Nos abonnements</a></li>
         <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
-        <li><a href="Nous.html">A propos de nous</a></li>
+        <li><a href="Nous.html">À propos de nous</a></li>
         <li><a href="Contacts.html">Contacts</a></li>
-        <li><a href="Connexion.html">Connexion</a></li>
-        <li><a href="Profil.html">Profil</a></li>
+        <li><a href="#" onclick="logout()" style="color: #ff4d4d;">Déconnexion</a></li>
     </ul>
 </nav>
 
+<main style="padding-top: 140px;">
+    <h1 style="text-align: center; margin-bottom: 40px;">Mon Espace Personnel</h1>
 
-<main>
-<h1>Mon Profil</h1>
+    <div class="grid-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
 
-<div class="grid">
-
-    <!-- --- INFOS PERSO --- -->
-    <div class="card">
-        <h3>Infos Personnelles</h3>
-        <label>Nom</label>
-        <input type="text" id="nom">
-        <label>Prénom</label>
-        <input type="text" id="prenom">
-        <label>Email</label>
-        <input type="email" id="emailUser">
-        <label>Mot de passe</label>
-        <input type="password" id="passwordUser">
-        <button onclick="saveInfos()">Enregistrer les modifications</button>
-        <p><a href="#">Mot de passe oublié ?</a></p>
-    </div>
-
-    <!-- --- VÉHICULES --- -->
-    <div class="card">
-        <h3>Mes Véhicules</h3>
-        <table id="vehiculeTable">
-            <thead>
-                <tr>
-                    <th>Immatriculation</th>
-                    <th>Marque</th>
-                    <th>Modèle</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- véhicules ajoutés dynamiquement -->
-            </tbody>
-        </table>
-
-        <h4>Ajouter un véhicule</h4>
-        <input type="text" id="newMatricule" placeholder="Immatriculation">
-        <input type="text" id="newMarque" placeholder="Marque">
-        <input type="text" id="newModele" placeholder="Modèle">
-        <button onclick="addVehicule()">Ajouter</button>
-    </div>
-
-    <!-- --- CAPTEURS --- -->
-    <div class="card">
-        <h3>Accès aux capteurs</h3>
-        <ul id="capteursList">
-            <!-- Capteurs ajoutés dynamiquement -->
-        </ul>
-    </div>
-
-    <!-- --- ACTIVITÉ --- -->
-    <div class="card">
-        <h3>Dernière Activité</h3>
-        <div id="activiteList">
-            <!-- Activité ajoutée dynamiquement -->
+        <div class="card">
+            <h3 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top:0;">Infos Personnelles</h3>
+            
+            <div class="input-group">
+                <label style="color: var(--accent-color); font-size: 0.8rem;">Prénom</label>
+                <input type="text" id="prenom">
+            </div>
+            
+            <div class="input-group">
+                <label style="color: var(--accent-color); font-size: 0.8rem;">Nom</label>
+                <input type="text" id="nom">
+            </div>
+            
+            <div class="input-group">
+                <label style="color: var(--accent-color); font-size: 0.8rem;">Email</label>
+                <input type="email" id="emailUser" value="test@test.com">
+            </div>
+            
+            <button class="btn" onclick="saveInfos()">Enregistrer les modifications</button>
         </div>
+
+        <div class="card">
+            <h3 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top:0;">Mes Véhicules</h3>
+            <table id="vehiculeTable" style="width: 100%; text-align: left; margin-bottom: 20px; border-collapse: collapse;">
+                <thead>
+                    <tr style="color: var(--accent-color); border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <th style="padding: 10px 0;">Immatriculation</th>
+                        <th>Marque</th>
+                        <th>Modèle</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+
+            <h4 style="margin-top: 20px;">Ajouter un véhicule</h4>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="text" id="newMatricule" placeholder="Immatriculation" style="margin: 0;">
+                <input type="text" id="newMarque" placeholder="Marque" style="margin: 0;">
+                <input type="text" id="newModele" placeholder="Modèle" style="margin: 0;">
+            </div>
+            <button class="btn" onclick="addVehicule()" style="background: transparent; border: 1px solid white; color: white;">Ajouter</button>
+        </div>
+
+        <div class="card">
+            <h3 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top:0;">Accès aux capteurs</h3>
+            <ul id="capteursList" style="list-style: none; padding: 0; line-height: 2;">
+                </ul>
+        </div>
+
+        <div class="card">
+            <h3 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top:0;">Dernière Activité</h3>
+            <div id="activiteList" style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">
+                </div>
+        </div>
+
     </div>
-
-</div>
 </main>
-
-<script>
-// Vérification connexion
-if(localStorage.getItem("isLogged") !== "true") {
-    window.location.href = "accueil.html";
-}
-
-// Remplir infos perso
-document.getElementById("nom").value = localStorage.getItem("userName") || "";
-document.getElementById("prenom").value = localStorage.getItem("userFirstName") || "";
-document.getElementById("emailUser").value = localStorage.getItem("userEmail") || "";
-
-// Sauvegarder modifications
-function saveInfos(){
-    localStorage.setItem("userName", document.getElementById("nom").value);
-    localStorage.setItem("userFirstName", document.getElementById("prenom").value);
-    localStorage.setItem("userEmail", document.getElementById("emailUser").value);
-    alert("Modifications enregistrées !");
-}
-
-// Gestion véhicules
-let vehicules = [
-    {matricule:"AA-123-BB", marque:"Tesla", modele:"Model 3"}
-];
-
-function renderVehicules(){
-    const tbody = document.getElementById("vehiculeTable").querySelector("tbody");
-    tbody.innerHTML = "";
-    vehicules.forEach((v,i)=>{
-        const tr = document.createElement("tr");
-        tr.innerHTML = `<td>${v.matricule}</td><td>${v.marque}</td><td>${v.modele}</td>
-        <td><button onclick="deleteVehicule(${i})">Supprimer</button></td>`;
-        tbody.appendChild(tr);
-    });
-}
-function addVehicule(){
-    const mat = document.getElementById("newMatricule").value;
-    const marque = document.getElementById("newMarque").value;
-    const modele = document.getElementById("newModele").value;
-    if(mat && marque && modele){
-        vehicules.push({matricule:mat, marque:marque, modele:modele});
-        document.getElementById("newMatricule").value="";
-        document.getElementById("newMarque").value="";
-        document.getElementById("newModele").value="";
-        renderVehicules();
-        addActivity(`Ajout du véhicule ${mat}`);
-    }
-}
-function deleteVehicule(index){
-    addActivity(`Suppression du véhicule ${vehicules[index].matricule}`);
-    vehicules.splice(index,1);
-    renderVehicules();
-}
-renderVehicules();
-
-// Capteurs
-const capteurs = ["Capteur de présence au sol","Arceau motorisé","Borne de recharge","Signalétique LED","Caméra LAPI","Borne NFC / RFID","Bluetooth (localisation)","Scanner d’obstacles","Capteur de saturation","Capteur dépassement durée"];
-const capteursList = document.getElementById("capteursList");
-capteurs.forEach(c=>{
-    const li = document.createElement("li");
-    li.textContent = `🟢 ${c} : Abonné`;
-    capteursList.appendChild(li);
-});
-
-// Activité
-const activiteList = document.getElementById("activiteList");
-function addActivity(txt){
-    const div = document.createElement("div");
-    div.className = "activity-item";
-    div.textContent = txt;
-    activiteList.prepend(div);
-}
-addActivity("Connexion à l'application");
-
-// Déconnexion
-function logout(){
-    localStorage.removeItem("isLogged");
-    window.location.href = "index.html";
-}
-</script>
 
 <footer class="footer">
     <div class="footer-container">
-
         <div class="footer-section">
             <h4>Contact</h4>
             <p>contact@smartpark.com</p>
         </div>
-
         <div class="footer-section">
             <h4>Questions / Réponses</h4>
             <a href="FAQ.html">FAQ</a>
             <a href="AIDE.html">Centre d’aide</a>
         </div>
-
     </div>
-
     <div class="footer-bottom">
         © 2026 SMARTPARK — Gestion intelligente du stationnement urbain
     </div>
-
 </footer>
+
+<script>
+    // 1. LE VIDEUR (Vérification de la connexion)
+    let sessionPrenom = localStorage.getItem('prenom');
+    let sessionNom = localStorage.getItem('nom');
+
+    if (!sessionPrenom || !sessionNom) {
+        // Si les variables n'existent pas, on renvoie à la connexion
+        window.location.href = "Connexion.html";
+    }
+
+    // 2. Remplir les champs avec les vraies infos
+    document.getElementById("prenom").value = sessionPrenom;
+    document.getElementById("nom").value = sessionNom;
+
+    // 3. Sauvegarder modifications
+    function saveInfos(){
+        localStorage.setItem("nom", document.getElementById("nom").value);
+        localStorage.setItem("prenom", document.getElementById("prenom").value);
+        alert("Modifications enregistrées !");
+        addActivity("Mise à jour du profil");
+    }
+
+    // 4. Gestion véhicules
+    let vehicules = [
+        {matricule:"AA-123-BB", marque:"Tesla", modele:"Model 3"}
+    ];
+
+    function renderVehicules(){
+        const tbody = document.getElementById("vehiculeTable").querySelector("tbody");
+        tbody.innerHTML = "";
+        vehicules.forEach((v,i)=>{
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td style="padding: 10px 0;">${v.matricule}</td>
+                <td>${v.marque}</td>
+                <td>${v.modele}</td>
+                <td><button onclick="deleteVehicule(${i})" style="padding: 5px 10px; background: #ff4d4d; color: white; border: none; border-radius: 4px; cursor: pointer;">X</button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function addVehicule(){
+        const mat = document.getElementById("newMatricule").value;
+        const marque = document.getElementById("newMarque").value;
+        const modele = document.getElementById("newModele").value;
+        if(mat && marque){
+            vehicules.push({matricule:mat, marque:marque, modele:modele});
+            document.getElementById("newMatricule").value="";
+            document.getElementById("newMarque").value="";
+            document.getElementById("newModele").value="";
+            renderVehicules();
+            addActivity(`Ajout du véhicule ${mat}`);
+        }
+    }
+
+    function deleteVehicule(index){
+        addActivity(`Suppression du véhicule ${vehicules[index].matricule}`);
+        vehicules.splice(index,1);
+        renderVehicules();
+    }
+    renderVehicules();
+
+    // 5. Capteurs (Design amélioré)
+    const capteurs = ["Capteur de présence au sol","Arceau motorisé","Borne de recharge","Signalétique LED","Caméra LAPI"];
+    const capteursList = document.getElementById("capteursList");
+    capteurs.forEach(c=>{
+        const li = document.createElement("li");
+        li.innerHTML = `<span style="color: #00ffcc; margin-right: 10px;">●</span> ${c} <span style="float: right; color: #888; font-size: 0.8rem;">Abonné</span>`;
+        capteursList.appendChild(li);
+    });
+
+    // 6. Activité
+    const activiteList = document.getElementById("activiteList");
+    function addActivity(txt){
+        const div = document.createElement("div");
+        div.style.borderLeft = "2px solid var(--accent-color)";
+        div.style.paddingLeft = "10px";
+        div.style.marginBottom = "10px";
+        
+        // Ajoute l'heure actuelle
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        div.innerHTML = `<strong>${timeString}</strong> - ${txt}`;
+        activiteList.prepend(div);
+    }
+    
+    // Ajoute la première activité au chargement
+    setTimeout(() => {
+        addActivity("Connexion à l'espace personnel");
+    }, 500);
+
+    // 7. Déconnexion corrigée
+    function logout(){
+        // On détruit les preuves de connexion
+        localStorage.removeItem("prenom");
+        localStorage.removeItem("nom");
+        window.location.href = "accueil.html"; // Renvoi propre à l'accueil
+    }
+</script>
 
 </body>
 </html>
-
