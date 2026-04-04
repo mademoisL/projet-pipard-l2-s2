@@ -192,6 +192,7 @@ section {
     border-radius: 8px 15px 15px 8px; /* L'avant est le côté droit (15px) */
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     animation: realParallelPark 20s infinite ease-in-out;
+    
 }
 
 /* Les deux phares (avant de la voiture) */
