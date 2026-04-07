@@ -45,38 +45,5 @@
             </div>
         </div>
     </main>
-
-    <script>
-        function login() {
-            let email = document.getElementById('email').value;
-            let password = document.getElementById('password').value;
-
-            if (!email || !password) {
-                alert('Veuillez remplir tous les champs.');
-                return;
-            }
-
-            if (email === "test@test.com" && password === "123") {
-                // On simule des fausses données de session pour que le site fonctionne
-                localStorage.setItem('prenom', 'Jury');
-                localStorage.setItem('nom', 'SmartPark');
-                window.location.href = 'Profil.html';
-                return; // On stoppe le script ici, on n'a pas besoin de chercher plus loin
-            }
-
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            let validUser = users.find(user => user.email === email && user.password === password);
-
-            if (validUser) {
-                localStorage.setItem('prenom', validUser.prenom);
-                localStorage.setItem('nom', validUser.nom);
-                alert('Connexion réussie !');
-                window.location.href = 'accueil.html';
-            } else {
-                alert('Email ou mot de passe incorrect.');
-            }
-        }
-    </script>
-
 </body>
 </html>
