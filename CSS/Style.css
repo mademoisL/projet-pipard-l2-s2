@@ -827,3 +827,107 @@ footer a:hover {
     gap: 30px;
     width: 100%;
 }
+
+/* ================= PROFIL ================= */
+
+.profil-main {
+    padding-top: 140px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.profil-titre { text-align: center; margin-bottom: 10px; }
+
+.profil-sous-titre { text-align: center; color: #888; margin-bottom: 40px; }
+
+.profil-message {
+    text-align: center;
+    padding: 12px;
+    background: rgba(255,255,255,0.07);
+    border: var(--glass-border);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Titre de chaque carte */
+.card-titre {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Tableau véhicules */
+.profil-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.profil-table th {
+    color: var(--accent-color);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.profil-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.table-vide { color: #888; padding: 10px 0; }
+
+/* Bouton supprimer */
+.btn-suppr {
+    padding: 5px 10px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+}
+
+/* Bouton outline (Ajouter véhicule) */
+.btn-outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.sous-titre-form { margin-top: 20px; margin-bottom: 10px; }
+
+/* Formulaire ajouter véhicule : champs côte à côte */
+.form-vehicule {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.form-vehicule input { margin: 0; flex: 1; min-width: 100px; }
+.form-vehicule button { flex-shrink: 0; width: auto; padding: 14px 20px; }
+
+/* Liste capteurs */
+.capteurs-liste {
+    list-style: none;
+    padding: 0;
+    line-height: 2.2;
+}
+
+.capteur-place { float: right; color: #666; font-size: 0.8rem; }
+
+/* Historique */
+.histo-item {
+    border-left: 2px solid var(--accent-color);
+    padding-left: 10px;
+    margin-bottom: 12px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Lien déconnexion navbar */
+.lien-deconnexion { color: #ff4d4d !important; }

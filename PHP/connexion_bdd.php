@@ -12,6 +12,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
     // Si un des 4 mots de passe/noms au-dessus est faux, ça coupe tout et affiche l'erreur
-    die("❌ ERREUR FATALE : Impossible de se connecter à la base. Détails : " . $e->getMessage());
+    die("ERREUR FATALE : Impossible de se connecter à la base. Détails : " . $e->getMessage());
 }
 ?>
