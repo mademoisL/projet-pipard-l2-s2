@@ -58,6 +58,7 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
         <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
         <li><a href="Nous.html">À propos de nous</a></li>
         <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Panier.html"> Mon panier </a></li>
         <li><a href="../PHP/logout.php" style="color: #ff4d4d;">Déconnexion</a></li>
     </ul>
 </nav>
