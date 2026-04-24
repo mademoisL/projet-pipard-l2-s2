@@ -36,6 +36,7 @@ $vq = $pdo->prepare("SELECT * FROM vehicules WHERE utilisateur_id=?"); $vq->exec
 $capteurs = $pdo->query("SELECT c.type_appareil,c.etat FROM capteurs c")->fetchAll();
 $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur_id=? ORDER BY date_action DESC LIMIT 5"); $hq->execute([$id]); $histo=$hq->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -146,7 +147,7 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
                     <li>
                         <span style="color:<?= $couleur ?>; margin-right:10px;">●</span>
                         <?= htmlspecialchars($c['type_appareil']) ?>
-                        <span style="color:#888; font-size:0.8rem;"><?= $c['etat'] ?></span>
+                        <span style="float:right; color:#888; font-size:0.8rem;"><?= $c['etat'] ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>

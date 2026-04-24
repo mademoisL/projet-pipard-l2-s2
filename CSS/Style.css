@@ -931,22 +931,3 @@ footer a:hover {
 
 /* Lien déconnexion navbar */
 .lien-deconnexion { color: #ff4d4d !important; }
-
-/* ===== PROFIL ===== */
-
-/* Capteurs : met le nom et le statut sur la même ligne proprement */
-#capteursList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 4px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Grille profil : 2 colonnes max pour que les cartes aient de la place */
-.grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 1200px;
-    margin: 0 auto;
-}
