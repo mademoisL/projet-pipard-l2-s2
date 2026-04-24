@@ -51,7 +51,7 @@ $places = $query->fetchAll();
 
         /* Couleurs selon le statut */
         .statut-libre { border-color: #00ffcc; color: #00ffcc; background: rgba(0, 255, 204, 0.05); }
-        .statut-occupee { border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.05); }
+        .statut-occupee { border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 0, 0, 0.05); }
         .statut-reservee { border-color: #00d4ff; color: #00d4ff; background: rgba(0, 212, 255, 0.05); }
 
         .statut-label {
@@ -64,6 +64,18 @@ $places = $query->fetchAll();
     </style>
 </head>
 <body>
+
+<?php if (isset($_GET['success']) && $_GET['success'] == 'reservee'): ?>
+    <div style="background: rgba(0, 255, 204, 0.1); border: 1px solid #00ffcc; color: #00ffcc; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px;">
+        Votre place a été réservée avec succès !
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_GET['erreur']) && $_GET['erreur'] == 'indisponible'): ?>
+    <div style="background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; color: #ff4d4d; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px;">
+        Désolé, cette place vient d'être prise ou est indisponible.
+    </div>
+<?php endif; ?>
 
     <main style="padding-top: 120px; max-width: 1000px; margin: 0 auto;">
         <h2 style="text-align: center;">État du Parking en Temps Réel</h2>
