@@ -146,7 +146,7 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
                     <li>
                         <span style="color:<?= $couleur ?>; margin-right:10px;">●</span>
                         <?= htmlspecialchars($c['type_appareil']) ?>
-                        <span style="float:right; color:#888; font-size:0.8rem;"><?= $c['etat'] ?></span>
+                        <span style="color:#888; font-size:0.8rem;"><?= $c['etat'] ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>
