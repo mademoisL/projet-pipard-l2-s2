@@ -7,20 +7,20 @@ if (!isset($_SESSION['user_id'])) { header("Location: connexion.php"); exit(); }
 $id  = $_SESSION['user_id'];
 $msg = "";
 
-if ($_POST['action'] ?? '' === 'modifier_profil') {
+if (($_POST['action'] ?? '') === 'modifier_profil') {
     $pdo->prepare("UPDATE utilisateurs SET prenom=?,nom=?,email=? WHERE id=?")
         ->execute([$_POST['prenom'], $_POST['nom'], $_POST['email'], $id]);
     $_SESSION['user_prenom'] = $_POST['prenom'];
     $msg = "Modifications enregistrées !";
 }
-if ($_POST['action'] ?? '' === 'ajouter_vehicule') {
+if (($_POST['action'] ?? '') === 'ajouter_vehicule') {
     $i=$_POST['immatriculation']; $ma=$_POST['marque']; $mo=$_POST['modele'];
     if ($i && $ma && $mo) {
         $pdo->prepare("INSERT INTO vehicules (utilisateur_id,immatriculation,marque,modele) VALUES (?,?,?,?)")->execute([$id,$i,$ma,$mo]);
         $pdo->prepare("INSERT INTO historique (utilisateur_id,action) VALUES (?,?)")->execute([$id,"Ajout du véhicule $i"]);
     }
 }
-if ($_POST['action'] ?? '' === 'supprimer_vehicule') {
+if (($_POST['action'] ?? '') === 'supprimer_vehicule') {
     $vid=(int)$_POST['vehicule_id'];
     $row=$pdo->prepare("SELECT immatriculation FROM vehicules WHERE id=? AND utilisateur_id=?");
     $row->execute([$vid,$id]); $row=$row->fetch();
@@ -36,7 +36,6 @@ $vq = $pdo->prepare("SELECT * FROM vehicules WHERE utilisateur_id=?"); $vq->exec
 $capteurs = $pdo->query("SELECT c.type_appareil,c.etat FROM capteurs c")->fetchAll();
 $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur_id=? ORDER BY date_action DESC LIMIT 5"); $hq->execute([$id]); $histo=$hq->fetchAll();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
