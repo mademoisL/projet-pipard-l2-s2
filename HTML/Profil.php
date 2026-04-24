@@ -179,8 +179,8 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
         </div>
         <div class="footer-section">
             <h4>Questions / Réponses</h4>
-            <a href="FAQ.html">FAQ</a>
-            <a href="AIDE.html">Centre d'aide</a>
+            <a href="FAQ.php">FAQ</a>
+            <a href="AIDE.php">Centre d'aide</a>
         </div>
     </div>
     <div class="footer-bottom">© 2026 SMARTPARK — Gestion intelligente du stationnement urbain</div>
