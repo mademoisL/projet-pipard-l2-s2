@@ -24,11 +24,28 @@
     </ul>
 </nav>
 
-<main class="about-container">
-  <section class="hero-about">
-    <h1>Redéfinir la mobilité urbaine</h1>
-    <p class="subtitle">L'innovation au service de votre sérénité.</p>
-</section>
+<div style="text-align: center; margin: 100px 0;">
+    <p style="font-size: 2.2rem; color: white; font-weight: 300;">
+        🌿 Nous en sommes déjà à 
+        <span id="tree-counter" class="logo-text" style="font-size: 5rem; display: block; margin: 20px 0;">0</span> 
+        arbres plantés !
+    </p>
+</div>
+
+<script>
+    const counter = document.getElementById('tree-counter');
+    const target = 237;
+    let count = 0;
+
+    const interval = setInterval(() => {
+        count++;
+        counter.textContent = count;
+        if (count >= target) {
+            clearInterval(interval);
+        }
+    }, 2500 / target);
+</script>
+
 
     <section class="about-content">
         <div class="about-text card">
@@ -58,47 +75,6 @@
     </div>
 </div>
 
-<div style="text-align: center; margin: 100px 0;">
-    <p style="font-size: 2.2rem; color: white; font-weight: 300;">
-        🌿 Nous en sommes déjà à 
-        <span id="tree-counter" data-target="237" class="logo-text" style="font-size: 5rem; display: block; margin: 20px 0;">0</span> 
-        arbres plantés !
-    </p>
-</div>
-
-<script>
-    function animateCounter(obj, start, end, duration) {
-        let current = start;
-        let range = end - start;
-        let increment = 1;
-        // On calcule le temps par étape pour que ça dure exactement 'duration'
-        let stepTime = Math.abs(Math.floor(duration / range));
-
-        let timer = setInterval(() => {
-            current += increment;
-            obj.textContent = current;
-            if (current >= end) {
-                clearInterval(timer);
-            }
-        }, stepTime);
-    }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counterElement = entry.target;
-                const target = parseInt(counterElement.getAttribute('data-target'));
-                animateCounter(counterElement, 0, target, 2500); // Animation fluide de 2.5s
-                observer.unobserve(counterElement);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const treeCounter = document.getElementById('tree-counter');
-    if (treeCounter) {
-        observer.observe(treeCounter);
-    }
-</script>
 
     </section>
 </main>
