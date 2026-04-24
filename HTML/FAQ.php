@@ -209,24 +209,27 @@
                 Vous n'avez pas trouvé votre réponse ? Envoyez-nous un message !
             </p>
             
-            <form action="#">
+            <?php if (isset($_GET['succes'])): ?>
+                <p style="color:#00ffcc; text-align:center;">Question envoyée !</p> <?php endif; ?>
+
+                <form method="POST" action="../PHP/envoyer_message.php">
+                    <input type="hidden" name="type" value="faq">
+                    <input type="hidden" name="retour" value="FAQ.html">
+
                 <div class="input-group">
                     <label>Votre Nom</label>
-                    <input type="text" placeholder="Ex: Jean Dupont" required>
+                    <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
                 </div>
-                
                 <div class="input-group">
                     <label>Votre Email</label>
-                    <input type="email" placeholder="email@exemple.com" required>
+                    <input type="email" name="email" placeholder="email@exemple.com" required>
                 </div>
-                
                 <div class="input-group">
                     <label>Votre Question</label>
-                    <textarea placeholder="Comment puis-je..." style="height: 120px;"></textarea>
+                    <textarea name="message" placeholder="Comment puis-je..." style="height: 120px;"></textarea>
                 </div>
-                
                 <button type="submit" class="btn">Envoyer ma question</button>
-            </form>
+                </form>
         </div>
     </section>
 </main>

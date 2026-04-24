@@ -90,29 +90,26 @@
                 Utilisez ce formulaire pour les retours non-urgents concernant l'état d'une station.
             </p>
             
-            <form action="#">
+
+            <?php if (isset($_GET['succes'])): ?>
+                <p style="color:#00ffcc; text-align:center;">Rapport envoyé !</p>
+            <?php endif; ?>
+
+            <form method="POST" action="../PHP/envoyer_message.php">
+                <input type="hidden" name="type" value="aide">
+                <input type="hidden" name="retour" value="AIDE.html">
+
                 <div class="input-group">
                     <label>Identifiant de la place (ex: PAR-042)</label>
-                    <input type="text" placeholder="Numéro écrit au sol" required>
+                    <input type="text" name="sujet" placeholder="Numéro écrit au sol" required>
                 </div>
-                
-                <div class="input-group">
-    				<label>Type de problème</label>
-    				<select style="width: 100%; padding: 12px; background-color: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 8px; appearance: none; cursor: pointer;">
-        				<option style="background-color: #1a1a1a; color: white;">Propreté / Déchets</option>
-        				<option style="background-color: #1a1a1a; color: white;">Éclairage défectueux</option>
-        				<option style="background-color: #1a1a1a; color: white;">Signalisation endommagée</option>
-        				<option style="background-color: #1a1a1a; color: white;">Autre</option>
-    				</select>
-				</div>
-                
                 <div class="input-group">
                     <label>Description</label>
-                    <textarea placeholder="Détaillez l'anomalie constatée..." style="height: 100px;"></textarea>
+                    <textarea name="message" placeholder="Détaillez l'anomalie constatée..." style="height: 100px;"></textarea>
                 </div>
-                
                 <button type="submit" class="btn">Envoyer le rapport</button>
             </form>
+
         </div>
     </section>
 </main>

@@ -33,16 +33,19 @@
 <section>
     <div class="contact-wrapper">
 
-        <!-- FORMULAIRE -->
-        <div class="contact-card">
-            <h2>Nous contacter</h2>
-            <form>
-                <input type="text" placeholder="Nom & Prénom" required>
-                <input type="email" placeholder="Adresse email" required>
-                <textarea rows="5" placeholder="Votre message"></textarea>
-                <button type="submit">Envoyer le message</button>
-            </form>
-        </div>
+<?php if (isset($_GET['succes'])): ?>
+    <p style="color:#00ffcc; text-align:center;">Message envoyé !</p>
+<?php endif; ?>
+
+<form method="POST" action="../PHP/envoyer_message.php">
+    <input type="hidden" name="type" value="contact">
+    <input type="hidden" name="retour" value="Contacts.html">
+    
+    <input type="text" name="nom" placeholder="Nom" required>
+    <input type="email" name="email" placeholder="Adresse email" required>
+    <textarea name="message" rows="5" placeholder="Votre message"></textarea>
+    <button type="submit">Envoyer le message</button>
+</form>
 
         <!-- INFOS + RÉSEAUX -->
         <div class="contact-card">
