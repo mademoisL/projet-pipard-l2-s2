@@ -69,7 +69,7 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
         <p style="text-align:center; color:#00ffcc; margin-bottom:20px;"><?= $msg ?></p>
     <?php endif; ?>
 
-    <div class="grid-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
 
         <!-- CARTE 1 : Infos personnelles — même structure HTML qu'avant, les value= viennent de la BDD -->
         <div class="card">
