@@ -35,42 +35,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>SMARTPARK | Connexion</title>
     <link rel="stylesheet" href="../CSS/Style.css">
 </head>
-<body class="page-centree" style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 20px;">
-        <div class="conteneur login-box" style="max-width: 700px; width: 100%; padding: 60px; box-sizing: border-box;">
+
+<body class="page-centree">
+
+    <main>
+        <div class="login-box" style="max-width: 500px;">
             
-            <a href="accueil.html" class="nav-left" style="justify-content: center; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; text-decoration: none;">
-                <img src="../Images/Logo sans nom.png" alt="Logo" class="header-logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 5px white);">
-                <div class="logo-text" style="margin: 0; color: white;">SMARTPARK</div>
+            <a href="accueil.php" class="nav-left" style="justify-content: center; text-decoration: none; margin-bottom: 30px;">
+                <img src="../Images/Logo sans nom.png" alt="Logo" class="header-logo">
+                <div class="logo-text">SMARTPARK</div>
             </a>
 
-            <div class="ligne-texte">
-                <div class="hr-container"></div>
-                <h3>Connexion</h3>
-                <div class="hr-container"></div>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3 style="font-weight: 300; letter-spacing: 2px;">Connexion</h3>
             </div>
 
             <?php if ($erreur): ?>
-                <p style="color:#ff4d4d; text-align:center; margin-bottom:15px;"><?= $erreur ?></p>
+                <p style="color:#ff4d4d; text-align:center; font-size: 0.9rem; margin-bottom:15px;"><?= $erreur ?></p>
             <?php endif; ?>
 
-            <!-- Seul vrai changement : <form method="POST"> remplace le onclick="login()" -->
-            <form method="POST" action="connexion.php">
+            <?php if (isset($_GET['inscrit'])): ?>
+                <p style="color:#00ffcc; text-align:center; font-size: 0.9rem; margin-bottom:15px;">Inscription réussie ! Connectez-vous.</p>
+            <?php endif; ?>
+
+            <form method="POST" action="Connexion.php">
                 <div class="input-group">
-                    <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" placeholder="Entrer votre email"
-                           value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    <label>Adresse email</label>
+                    <input type="email" name="email" placeholder="Entrer votre email" 
+                           value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
                 </div>
+                
                 <div class="input-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="Entrer votre mot de passe">
+                    <label>Mot de passe</label>
+                    <input type="password" name="password" placeholder="Entrer votre mot de passe" required>
                 </div>
+                
                 <button type="submit" class="btn">Se connecter</button>
             </form>
 
             <div class="links">
                 <a href="Mdp_oubli.html">Mot de passe oublié ?</a>
-                <a href="Inscription.html">Inscription</a>
+                <a href="Inscription.php">Inscription</a>
             </div>
         </div>
     </main>
