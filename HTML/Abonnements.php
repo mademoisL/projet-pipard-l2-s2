@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTPARK | Les abonnements</title>
+    <link rel="icon" type="image/png" href="../Images/Logo sans nom.png">
+    <link rel="stylesheet" href="../CSS/Style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-left">
+        <img src="../Images/Logo sans nom.png" alt="Logo SmartPark" class="header-logo">
+        <div class="logo-text">SMARTPARK</div>
+    </div>
+    
+    <ul class="nav-links">
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="Abonnements.html">Nos abonnements</a></li>
+        <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
+        <li><a href="Nous.html">À propos de nous</a></li>
+        <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Panier.html"> Mon panier </a></li>
+        <li><a href="Connexion.php">Connexion</a></li>
+    </ul>
+</nav>
+
+<section id="abonnements">
+    <h2>Nos offres d'abonnement</h2>
+
+    <div class="pricing-wrapper">
+
+        <div class="price-card">
+            <h3>Standard</h3>
+            <div class="price">5,99 €</div>
+            <p>/ mois</p>
+            <ul>
+                <li>L’essentiel pour stationner plus vite et sans stress. Capteurs inclus :</li>
+                <li>Capteur de présence au sol </li>
+                <li>Capteur de saturation de zone </li>
+                <li>Capteur de dépassement de durée </li>
+                <li>Signalétique lumineuse LED </li>
+                <li>Scanner d’obstacles</li>
+            </ul>
+            <form action="Panier.php" method="POST">
+                <input type="hidden" name="produit_id" value="1">
+                <input type="hidden" name="nom_offre" value="Standard">
+                <button type="submit" class="btn">Ajouter au panier</button>
+            </form>
+        </div>
+
+        <div class="price-card highlight">
+            <h3>Premium</h3>
+            <div class="price">12,99 €</div>
+            <p>/ mois</p>
+            <ul>
+                <li>L’expérience SMARTPARK complète, 100 % connectée. Automatisation totale du stationnement ! Capteurs inclus :</li>
+                <li>Tous les capteurs de l’offre Standard </li>
+                <li> + </li>
+                <li>Arceau de parking motorisé </li>
+                <li>Caméra LAPI (lecture automatique de plaque) </li>
+                <li>Borne de recharge intelligente </li>
+                <li>Borne NFC / RFID </li>
+                <li>Localisation Bluetooth du véhicule </li>
+            </ul>
+            <form action="Panier.php" method="POST">
+                <input type="hidden" name="produit_id" value="2">
+                <input type="hidden" name="nom_offre" value="Premium">
+                <button type="submit" class="btn">Ajouter au panier</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>contact@smartpark.com</p>
+            <h4>Informations</h4>
+          <p>Mentions légales</p>
+          <p>Politique de confidentialité</p>
+          <p>Conditions d’utilisation</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Questions / Réponses</h4>
+            <a href="FAQ.php">FAQ</a>
+            <a href="AIDE.php">Centre d’aide</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 SMARTPARK — Gestion intelligente du stationnement urbain
+    </div>
+</footer>
+
+
+</body>
+</html>
