@@ -58,6 +58,7 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
         <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
         <li><a href="Nous.html">À propos de nous</a></li>
         <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Places.php">Disponibilité des places en temps réel</a></li>
         <li><a href="../PHP/logout.php" style="color: #ff4d4d;">Déconnexion</a></li>
     </ul>
 </nav>
@@ -88,6 +89,26 @@ $hq = $pdo->prepare("SELECT action,date_action FROM historique WHERE utilisateur
                     <label style="color: var(--accent-color); font-size: 0.8rem;">Email</label>
                     <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
                 </div>
+                <div class="input-group">
+                    <label style="color: var(--accent-color); font-size: 0.8rem;">Tél</label>
+                    <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone'] ?? '') ?>">
+                </div>
+        <div class="input-group">
+            <label style="color: var(--accent-color); font-size: 0.8rem;">Adresse</label>
+            <input type="text" name="adresse" placeholder="12 rue de la Paix" value="<?= htmlspecialchars($user['adresse'] ?? '') ?>">
+        </div>
+
+        <div style="display: flex; gap: 15px;">
+            <div class="input-group" style="flex: 1;">
+                <label style="color: var(--accent-color); font-size: 0.8rem;">Code Postal</label>
+                <input type="text" name="code_postal" placeholder="75000" value="<?= htmlspecialchars($user['code_postal'] ?? '') ?>">
+            </div>
+            <div class="input-group" style="flex: 2;">
+                <label style="color: var(--accent-color); font-size: 0.8rem;">Ville</label>
+                <input type="text" name="ville" placeholder="Paris" value="<?= htmlspecialchars($user['ville'] ?? '') ?>">
+            </div>
+        </div>
+
                 <button class="btn" type="submit">Enregistrer les modifications</button>
             </form>
         </div>
