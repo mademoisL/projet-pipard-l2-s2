@@ -22,10 +22,10 @@
     </div>
     <ul class="nav-links">
         <li><a href="accueil.html">Accueil</a></li>
-        <li><a href="Abonnements.html">Nos abonnements</a></li>
+        <li><a href="Abonnements.php">Nos abonnements</a></li>
         <li><a href="Presentation_des_appareils.html">Nos appareils</a></li>
         <li><a href="Nous.html">A propos de nous</a></li>
-        <li><a href="Contacts.html">Contacts</a></li>
+        <li><a href="Contacts.php">Contacts</a></li>
         <li><a href="Connexion.php">Connexion</a></li>
     </ul>
 </nav>
