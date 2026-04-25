@@ -83,16 +83,3 @@ if (isset($_GET['action']) && $_GET['action'] == 'vider') {
 
 </body>
 </html>
-
-<div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-    <?php if (isset($_SESSION['user_id'])): ?>
-        <a href="Paiement.php" class="btn">Procéder au paiement</a>
-    <?php else: ?>
-        <div style="display: flex; gap: 15px;">
-            <a href="INSCRIPTION.php" class="btn" style="flex: 1;">Créer un compte</a>
-            <a href="Connexion.php" class="btn btn-outline" style="flex: 1;">Se connecter</a>
-        </div>
-    <?php endif; ?>
-
-    <a href="Panier.php?action=vider" class="btn-delete">Vider le panier</a>
-</div>
