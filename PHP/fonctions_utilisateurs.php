@@ -54,12 +54,6 @@ function ajouterVehicule($pdo, $userId, $immat, $marque, $modele) {
     return $stmt->execute([$userId, $immat, $marque, $modele]);
 }
  
-// Fonction pour récupérer l'immatriculation avant suppression (sécurité)
-function getVehiculeParId($pdo, $vehiculeId, $userId) {
-    $stmt = $pdo->prepare("SELECT * FROM vehicules WHERE id = ? AND utilisateur_id = ?");
-    $stmt->execute([$vehiculeId, $userId]);
-    return $stmt->fetch();
-}
  
 // Fonction pour supprimer un véhicule
 function supprimerVehicule($pdo, $vehiculeId) {

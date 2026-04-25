@@ -43,14 +43,11 @@ switch ($action) {
         break;
  
     case 'supprimer_vehicule':
-        $vid = (int) ($_POST['vehicule_id'] ?? 0);
-        $veh = getVehiculeParId($pdo, $vid, $id);
-        if ($veh) {
-            supprimerVehicule($pdo, $vid);
-            ajouterHistorique($pdo, $id, "Suppression du véhicule " . $veh['immatriculation']);
-        }
+        $vehicule_id = (int) ($_POST['vehicule_id'] ?? 0);
+        supprimerVehicule($pdo, $vehicule_id);
+        ajouterHistorique($pdo, $id, "Suppression d'un véhicule"
+        );
         break;
-}
  
 //Lecture BDD via fonctions (retournent des tableaux)
 $user     = getUtilisateur($pdo, $id);
