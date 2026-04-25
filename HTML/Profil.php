@@ -36,7 +36,7 @@ switch ($action) {
         $marque = trim($_POST['marque']          ?? '');
         $modele = trim($_POST['modele']          ?? '');
         //Validation avant insertion
-        if ($immat && $marque && $modele) {
+        if ($immat && $marque && $modele && preg_match('/^[A-Za-z0-9-]+$/', $immat)) {
             ajouterVehicule($pdo, $id, $immat, $marque, $modele);
             ajouterHistorique($pdo, $id, "Ajout du véhicule $immat");
         }
@@ -164,7 +164,7 @@ $histo     = getHistorique($pdo, $id, 5);
             <form method="POST" action="Profil.php">
                 <input type="hidden" name="action" value="ajouter_vehicule">
                 <div style="display:flex; gap:10px; margin-bottom:15px;">
-                    <input type="text" name="immatriculation" placeholder="Immatriculation" style="margin:0;">
+                    <input type="text" name="immatriculation" placeholder="Immatriculation" style="margin:0";pattern="[A-Za-z0-9-]+";>
                     <input type="text" name="marque" placeholder="Marque" style="margin:0;">
                     <input type="text" name="modele" placeholder="Modèle" style="margin:0;">
                 </div>
