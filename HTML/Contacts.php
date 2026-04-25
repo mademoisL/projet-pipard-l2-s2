@@ -32,7 +32,8 @@
 
 <section>
     <div class="contact-wrapper">
-
+        <div class="contact-card">
+            <h2>Nous contacter</h2>
 <?php if (isset($_GET['succes'])): ?>
     <p style="color:#00ffcc; text-align:center;">Message envoyé !</p>
 <?php endif; ?>
@@ -46,6 +47,7 @@
     <textarea name="message" rows="5" placeholder="Votre message"></textarea>
     <button type="submit">Envoyer le message</button>
 </form>
+</div>
 
         <!-- INFOS + RÉSEAUX -->
         <div class="contact-card">
