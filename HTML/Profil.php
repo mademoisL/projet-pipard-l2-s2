@@ -48,7 +48,7 @@ switch ($action) {
         ajouterHistorique($pdo, $id, "Suppression d'un véhicule"
         );
         break;
- 
+ }
 //Lecture BDD via fonctions (retournent des tableaux)
 $user     = getUtilisateur($pdo, $id);
 $vehicules = getVehicules($pdo, $id);
