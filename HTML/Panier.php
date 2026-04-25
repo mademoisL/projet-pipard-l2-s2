@@ -25,6 +25,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'vider') {
     <title>SMARTPARK | Mon Panier</title>
     <link rel="stylesheet" href="../CSS/Style.css">
     <link rel="icon" type="image/png" href="../Images/Logo sans nom.png">
+    <style>
+    /* On force la couleur blanche sur tous les états du bouton */
+    .btn-paiement, 
+    .btn-paiement:visited, 
+    .btn-paiement:active, 
+    .btn-paiement:hover {
+        color: white !important;
+        text-decoration: none;
+    }
+</style>
 </head>
 <body>
 
@@ -65,7 +75,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'vider') {
                 </p>
 
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <a href="Paiement.php" class="btn">Procéder au paiement</a>
+                <div style="margin-top: 30px;">
+                <a href="Paiement.php" class="btn-paiement">Procéder au paiement</a>
+                </div>
                 <?php else: ?>
                     <div style="display: flex; gap: 10px;">
                         <a href="INSCRIPTION.php" class="btn">Créer un compte</a>
@@ -74,7 +86,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'vider') {
                 <?php endif; ?>
 
                 <br>
+                <div style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
                 <a href="Panier.php?action=vider" style="color: #ff4d4d; font-size: 0.8rem; text-decoration: none;">Vider le panier</a>
+                </div>
             </div>
         <?php endif; ?>
 
