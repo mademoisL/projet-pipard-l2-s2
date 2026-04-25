@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <div class="login-box" style="max-width: 500px;">
  
-            <a href="accueil.php" class="nav-left" style="justify-content: center; text-decoration: none; margin-bottom: 30px;">
+            <a href="accueil.html" class="nav-left" style="justify-content: center; text-decoration: none; margin-bottom: 30px;">
                 <img src="../Images/Logo sans nom.png" alt="Logo" class="header-logo">
                 <div class="logo-text">SMARTPARK</div>
             </a>
