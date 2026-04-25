@@ -1,8 +1,6 @@
 <?php
 session_start();
-
 require_once '../PHP/connexion_bdd.php';
-
 require_once '../PHP/fonctions_utilisateurs.php';
  
 // Sécurité : redirection si non connecté
@@ -37,7 +35,7 @@ switch ($action) {
         $immat  = trim($_POST['immatriculation'] ?? '');
         $marque = trim($_POST['marque']          ?? '');
         $modele = trim($_POST['modele']          ?? '');
-        // Chap 4 — Validation avant insertion
+        //Validation avant insertion
         if ($immat && $marque && $modele) {
             ajouterVehicule($pdo, $id, $immat, $marque, $modele);
             ajouterHistorique($pdo, $id, "Ajout du véhicule $immat");
@@ -57,7 +55,7 @@ switch ($action) {
 //Lecture BDD via fonctions (retournent des tableaux)
 $user     = getUtilisateur($pdo, $id);
 $vehicules = getVehicules($pdo, $id);
-$capteurs  = getCapteurs($pdo);
+$capteurs  = getCapteurs($pdo, $user['abonnement_id']);
 $histo     = getHistorique($pdo, $id, 5);
 ?>
 

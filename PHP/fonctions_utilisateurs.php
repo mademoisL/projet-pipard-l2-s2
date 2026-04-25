@@ -68,18 +68,17 @@ function supprimerVehicule($pdo, $vehiculeId) {
 }
  
 //Toutes les fonctions liées aux capteurs
-// Fonction pour récupérer tous les capteurs
-function getCapteurs($pdo) {
-    try {
-        $query = $pdo->query("SELECT type_appareil, etat FROM capteurs");
-        if ($query) {
-            return $query->fetchAll(PDO::FETCH_ASSOC);
-        }
-        return []; // Retourne un tableau vide si la requête échoue
-    } catch (Exception $e) {
-        return [];
-    }
+// Fonction qui retourne les capteurs accessibles selon l'abonnement de l'utilisateur
+function getCapteurs($pdo, $abonnementId = 1) {
+    // Standard (1) : abonnement_requis <= 1 → 5 capteurs
+    // Premium  (2) : abonnement_requis <= 2 → 10 capteurs
+    $stmt = $pdo->prepare(
+        "SELECT type_appareil, etat FROM capteurs WHERE abonnement_requis <= ? ORDER BY abonnement_requis, id"
+    );
+    $stmt->execute([$abonnementId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 // Fonction avec Switch pour déterminer la couleur d'un capteur
 function getCouleurCapteur($etat) {
     switch ($etat) {
