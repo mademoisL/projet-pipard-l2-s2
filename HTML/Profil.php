@@ -1,9 +1,11 @@
 <?php
 session_start();
+
 require_once '../PHP/connexion_bdd.php';
+
 require_once '../PHP/fonctions_utilisateurs.php';
  
-// Sécurité : redirection si non connecté
+//Sécurité : redirection si non connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: Connexion.php");
     exit();
@@ -35,8 +37,8 @@ switch ($action) {
         $immat  = trim($_POST['immatriculation'] ?? '');
         $marque = trim($_POST['marque']          ?? '');
         $modele = trim($_POST['modele']          ?? '');
-        //Validation avant insertion
-        if ($immat && $marque && $modele && preg_match('/^[A-Za-z0-9-]+$/', $immat)) {
+        // Chap 4 — Validation avant insertion
+        if ($immat && $marque && $modele) {
             ajouterVehicule($pdo, $id, $immat, $marque, $modele);
             ajouterHistorique($pdo, $id, "Ajout du véhicule $immat");
         }
@@ -45,17 +47,16 @@ switch ($action) {
     case 'supprimer_vehicule':
         $vehicule_id = (int) ($_POST['vehicule_id'] ?? 0);
         supprimerVehicule($pdo, $vehicule_id);
-        ajouterHistorique($pdo, $id, "Suppression d'un véhicule"
-        );
+        ajouterHistorique($pdo, $id, "Suppression d'un véhicule");
         break;
- }
+}
+ 
 //Lecture BDD via fonctions (retournent des tableaux)
 $user     = getUtilisateur($pdo, $id);
 $vehicules = getVehicules($pdo, $id);
 $capteurs  = getCapteurs($pdo, $user['abonnement_id']);
 $histo     = getHistorique($pdo, $id, 5);
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -164,7 +165,7 @@ $histo     = getHistorique($pdo, $id, 5);
             <form method="POST" action="Profil.php">
                 <input type="hidden" name="action" value="ajouter_vehicule">
                 <div style="display:flex; gap:10px; margin-bottom:15px;">
-                    <input type="text" name="immatriculation" placeholder="Immatriculation" style="margin:0";pattern="[A-Za-z0-9-]+";>
+                    <input type="text" name="immatriculation" placeholder="Immatriculation" style="margin:0;">
                     <input type="text" name="marque" placeholder="Marque" style="margin:0;">
                     <input type="text" name="modele" placeholder="Modèle" style="margin:0;">
                 </div>
@@ -174,20 +175,86 @@ $histo     = getHistorique($pdo, $id, 5);
  
         <!-- CARTE 3 : Capteurs -->
         <div class="card">
-            <h3>État du Système</h3>
-            <div class="capteurs-list">
-                <?php foreach ($capteurs as $capteur): ?>
-    <div class="capteur-item">
-        <span><?= htmlspecialchars($capteur['type_appareil']) ?></span>
-        
-        <span class="status-dot" style="background-color: <?= getCouleurCapteur($capteur['etat']) ?>;"></span>
-        
-        <span style="color: <?= getCouleurCapteur($capteur['etat']) ?>;">
-            <?= htmlspecialchars($capteur['etat']) ?>
-        </span>
-    </div>
-<?php endforeach; ?>
-            </div>
+            <h3 style="border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-top:0;">Accès aux capteurs</h3>
+ 
+            <?php
+            // srand() initialise le générateur avec l'ID utilisateur comme graine.
+            // Même utilisateur = toujours les mêmes chiffres fictifs stables entre les rechargements.
+            srand($id);
+ 
+            //Tableau associatif : mesures fictives adaptées à chaque type de capteur
+            $mesures_par_type = [
+                'Capteur de présence au sol'      => ['label' => "Détections aujourd'hui", 'valeur' => rand(0, 40),   'unite' => 'évén.'],
+                'Capteur de saturation de zone'   => ['label' => 'Taux de saturation',      'valeur' => rand(20, 95),  'unite' => '%'],
+                'Capteur de dépassement de durée' => ['label' => 'Dépassements détectés',   'valeur' => rand(0, 8),    'unite' => 'ce mois'],
+                'Signalétique lumineuse LED'       => ['label' => 'Consommation',            'valeur' => rand(1, 5),    'unite' => 'W'],
+                "Scanner d'obstacles"            => ['label' => "Obstacles détectés",     'valeur' => rand(0, 3),    'unite' => "aujourd'hui"],
+                'Arceau de parking motorisé'      => ['label' => "Ouvertures aujourd'hui", 'valeur' => rand(0, 20),   'unite' => 'fois'],
+                'Caméra LAPI'                     => ['label' => 'Plaques scannées',        'valeur' => rand(10, 120), 'unite' => "aujourd'hui"],
+                'Borne de recharge intelligente'  => ['label' => 'Énergie délivrée',        'valeur' => rand(5, 80),   'unite' => 'kWh'],
+                'Borne NFC / RFID'                => ['label' => 'Validations',             'valeur' => rand(0, 15),   'unite' => "aujourd'hui"],
+                'Localisation Bluetooth'          => ['label' => 'Guidages effectués',      'valeur' => rand(0, 10),   'unite' => "aujourd'hui"],
+            ];
+ 
+            //Tableau des messages de panne fictifs
+            $messages_panne = [
+                'Signal intermittent détecté — vérification planifiée.',
+                'Calibration requise sous 7 jours.',
+                'Température interne élevée — surveillance active.',
+                'Mise à jour firmware en attente.',
+            ];
+ 
+            //foreach sur le tableau $capteurs retourné par getCapteurs()
+            foreach ($capteurs as $i => $c):
+                $couleur = getCouleurCapteur($c['etat']);
+                $type    = $c['type_appareil'];
+                $mesure  = $mesures_par_type[$type] ?? ['label' => 'Activité', 'valeur' => rand(0, 100), 'unite' => ''];
+ 
+                // Batterie et délai fictifs stables par capteur (graine unique par capteur)
+                srand($id + $i * 17);
+                $batterie = rand(55, 100);
+                $derniere = rand(1, 59);
+ 
+                //Message de panne uniquement si etat != 'En ligne'
+                $panne_msg = '';
+                if ($c['etat'] !== 'En ligne') {
+                    srand($id + $i);
+                    $panne_msg = $messages_panne[rand(0, count($messages_panne) - 1)];
+                }
+            ?>
+                <div style="border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:15px; margin-bottom:15px;">
+ 
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                        <strong style="font-size:0.95rem;">
+                            <span style="color:<?= $couleur ?>; margin-right:8px;">●</span>
+                            <?= htmlspecialchars($type) ?>
+                        </strong>
+                        <span style="font-size:0.75rem; color:<?= $couleur ?>; background:rgba(255,255,255,0.05); padding:2px 8px; border-radius:20px;">
+                            <?= $c['etat'] ?>
+                        </span>
+                    </div>
+ 
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:#aaa; margin-bottom:6px;">
+                        <span><?= $mesure['label'] ?></span>
+                        <span style="color:var(--accent-color); font-weight:bold;">
+                            <?= $mesure['valeur'] ?> <?= $mesure['unite'] ?>
+                        </span>
+                    </div>
+ 
+                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:#666;">
+                        <span>🔋 Batterie : <?= $batterie ?>%</span>
+                        <span>Dernière remontée : il y a <?= $derniere ?> min</span>
+                    </div>
+ 
+                    <?php if ($panne_msg): ?>
+                        <div style="margin-top:8px; font-size:0.78rem; color:#ffcc00; background:rgba(255,204,0,0.05); padding:6px 10px; border-radius:6px; border-left:3px solid #ffcc00;">
+                            ⚠ <?= $panne_msg ?>
+                        </div>
+                    <?php endif; ?>
+ 
+                </div>
+            <?php endforeach; ?>
+ 
         </div>
  
         <!-- CARTE 4 : Activité -->
